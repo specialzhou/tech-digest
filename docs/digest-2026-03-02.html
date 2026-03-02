@@ -88,34 +88,57 @@
             backdrop-filter: blur(10px);
         }
         
-        .crypto-symbol {
-            display: block;
+        .crypto-symbol { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; opacity: 0.9; }
+        .crypto-price { display: block; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .crypto-change { display: block; font-size: 13px; font-weight: 500; }
+        .crypto-item.up .crypto-change { color: #4ade80; }
+        .crypto-item.down .crypto-change { color: #f87171; }
+        
+        .daily-plugin {
+            padding: 32px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .daily-plugin .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .plugin-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid #e94560;
+        }
+        
+        .plugin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .plugin-priority {
             font-size: 14px;
             font-weight: 600;
-            margin-bottom: 8px;
-            opacity: 0.9;
+            background: #e94560;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
         }
         
-        .crypto-price {
-            display: block;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        
-        .crypto-change {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        
-        .crypto-item.up .crypto-change {
-            color: #4ade80;
-        }
-        
-        .crypto-item.down .crypto-change {
-            color: #f87171;
-        }
+        .plugin-engagement { font-size: 13px; opacity: 0.8; }
+        .plugin-name { font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+        .plugin-desc { font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.6; }
+        .plugin-details { display: grid; gap: 16px; }
+        .detail-item strong { display: block; font-size: 13px; color: #4cc9f0; margin-bottom: 6px; }
+        .detail-item p { font-size: 14px; line-height: 1.6; opacity: 0.9; }
         
         .daily-knowledge {
             padding: 32px;
@@ -123,233 +146,50 @@
             border-bottom: 1px solid var(--border);
         }
         
-        .daily-knowledge .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text);
-        }
+        .daily-knowledge .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text); }
+        .knowledge-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #0284c7; }
+        .knowledge-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+        .knowledge-content { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
+        .knowledge-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .knowledge-tag { font-size: 12px; color: #0369a1; background: #e0f2fe; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
         
-        .knowledge-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 4px solid #0284c7;
-        }
-        
-        .knowledge-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-        
-        .knowledge-content {
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--text);
-            margin-bottom: 16px;
-        }
-        
-        .knowledge-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .knowledge-tag {
-            font-size: 12px;
-            color: #0369a1;
-            background: #e0f2fe;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 500;
-        }
-        
-        .editors-picks {
-            padding: 40px 32px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        
-        .section-subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-        
-        .picks-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .pick-item {
-            display: flex;
-            gap: 16px;
-            padding: 20px;
-            background: var(--accent-light);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-        
+        .editors-picks { padding: 40px 32px; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+        .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+        .picks-grid { display: flex; flex-direction: column; gap: 20px; }
+        .pick-item { display: flex; gap: 16px; padding: 20px; background: var(--accent-light); border-radius: 12px; border-left: 4px solid var(--accent); }
         .pick-1 { border-left-color: var(--pick-1); }
         .pick-2 { border-left-color: var(--pick-2); }
         .pick-3 { border-left-color: var(--pick-3); }
         .pick-4 { border-left-color: var(--pick-4); }
-        
-        .pick-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-muted);
-            line-height: 1;
-        }
-        
+        .pick-number { font-size: 24px; font-weight: 700; color: var(--text-muted); line-height: 1; }
         .pick-1 .pick-number { color: var(--pick-1); }
         .pick-2 .pick-number { color: var(--pick-2); }
         .pick-3 .pick-number { color: var(--pick-3); }
         .pick-4 .pick-number { color: var(--pick-4); }
+        .pick-content { flex: 1; }
+        .pick-reason { display: inline-block; font-size: 12px; color: var(--text-muted); background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+        .pick-summary { display: block; font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 8px; padding: 10px; background: rgba(255,255,255,0.6); border-radius: 6px; }
+        .pick-title { display: block; font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none; line-height: 1.4; }
+        .pick-title:hover { text-decoration: underline; }
+        .pick-source { font-size: 12px; color: var(--text-muted); margin-top: 6px; display: block; }
         
-        .pick-content {
-            flex: 1;
-        }
+        .content { padding: 40px 32px; }
+        .topic-section { margin-bottom: 40px; }
+        .regulation-section { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 24px; border-radius: 12px; border-left: 4px solid #d97706; margin-bottom: 40px; }
+        .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+        .regulation-tag { display: inline-block; font-size: 11px; font-weight: 600; color: #92400e; background: rgba(217, 119, 6, 0.2); padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; margin-right: 8px; }
+        .topic-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .topic-emoji { font-size: 18px; }
+        .article-list { list-style: none; }
+        .article-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .article-item:last-child { border-bottom: none; }
+        .article-link { font-size: 15px; color: var(--text); text-decoration: none; line-height: 1.5; }
+        .article-link:hover { color: var(--accent); }
+        .article-source { font-size: 13px; color: var(--text-muted); margin-left: 8px; }
         
-        .pick-reason {
-            display: inline-block;
-            font-size: 12px;
-            color: var(--text-muted);
-            background: rgba(0,0,0,0.05);
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-        
-        .pick-summary {
-            display: block;
-            font-size: 14px;
-            color: var(--text);
-            line-height: 1.6;
-            margin-bottom: 8px;
-            padding: 10px;
-            background: rgba(255,255,255,0.6);
-            border-radius: 6px;
-        }
-        
-        .pick-title {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--accent);
-            text-decoration: none;
-            line-height: 1.4;
-        }
-        
-        .pick-title:hover {
-            text-decoration: underline;
-        }
-        
-        .pick-source {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 6px;
-            display: block;
-        }
-        
-        .content {
-            padding: 40px 32px;
-        }
-        
-        .topic-section {
-            margin-bottom: 40px;
-        }
-        
-        .regulation-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 24px;
-            border-radius: 12px;
-            border-left: 4px solid #d97706;
-            margin-bottom: 40px;
-        }
-        
-        .section-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
-        
-        .regulation-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            color: #92400e;
-            background: rgba(217, 119, 6, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 6px;
-            margin-right: 8px;
-        }
-        
-        .topic-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .topic-emoji {
-            font-size: 18px;
-        }
-        
-        .article-list {
-            list-style: none;
-        }
-        
-        .article-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .article-item:last-child {
-            border-bottom: none;
-        }
-        
-        .article-link {
-            font-size: 15px;
-            color: var(--text);
-            text-decoration: none;
-            line-height: 1.5;
-        }
-        
-        .article-link:hover {
-            color: var(--accent);
-        }
-        
-        .article-source {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-left: 8px;
-        }
-        
-        footer {
-            padding: 24px 32px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        footer { padding: 24px 32px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--text-muted); }
+        footer a { color: var(--accent); text-decoration: none; }
         
         @media (max-width: 600px) {
             .container { max-width: 100%; }
@@ -378,35 +218,33 @@
             <h2 class="section-title">🪙 加密货币行情</h2>
             <p class="section-subtitle">实时价格 · 24 小时涨跌</p>
             <div class="crypto-grid">
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">BTC</span>
-                    <span class="crypto-price">$69,004</span>
-                    <span class="crypto-change">+3.9%</span>
+                <div class="crypto-item up"><span class="crypto-symbol">BTC</span><span class="crypto-price">$69,004</span><span class="crypto-change">+3.9%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">ETH</span><span class="crypto-price">$2,029</span><span class="crypto-change">+2.4%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">SOL</span><span class="crypto-price">$87.48</span><span class="crypto-change">+3.7%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">USDC</span><span class="crypto-price">$1.00</span><span class="crypto-change">+0.0%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">USDT</span><span class="crypto-price">$1.00</span><span class="crypto-change">+0.0%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">LINK</span><span class="crypto-price">$9.04</span><span class="crypto-change">+2.1%</span></div>
+            </div>
+        </section>
+        
+        <section class="daily-plugin">
+            <h2 class="section-title">🔌 OpenClaw 插件推荐</h2>
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <span class="plugin-priority">🔥 必装</span>
+                    <span class="plugin-engagement">👍 2.4k 点赞 · 580 转发</span>
                 </div>
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">ETH</span>
-                    <span class="crypto-price">$2,029</span>
-                    <span class="crypto-change">+2.4%</span>
-                </div>
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">SOL</span>
-                    <span class="crypto-price">$87.48</span>
-                    <span class="crypto-change">+3.7%</span>
-                </div>
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">USDC</span>
-                    <span class="crypto-price">$1.00</span>
-                    <span class="crypto-change">+0.0%</span>
-                </div>
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">USDT</span>
-                    <span class="crypto-price">$1.00</span>
-                    <span class="crypto-change">+0.0%</span>
-                </div>
-                <div class="crypto-item up">
-                    <span class="crypto-symbol">LINK</span>
-                    <span class="crypto-price">$9.04</span>
-                    <span class="crypto-change">+2.1%</span>
+                <h3 class="plugin-name">Memory LanceDB Pro</h3>
+                <p class="plugin-desc">LanceDB 驱动的长期记忆系统，支持向量 + 关键词混合检索，多 scope 隔离</p>
+                <div class="plugin-details">
+                    <div class="detail-item">
+                        <strong>💡 实际用途</strong>
+                        <p>记住舟哥的技术偏好、项目进展、对话历史。跨会话保持一致性，不再每次都说"我是谁"。</p>
+                    </div>
+                    <div class="detail-item">
+                        <strong>🎯 为什么推荐给你</strong>
+                        <p>你是全栈技术合伙人，需要记住舟哥的每个项目细节。这个插件让你不再是"金鱼记忆"，而是真正的长期助手。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -415,17 +253,13 @@
             <h2 class="section-title">📚 每日跨境支付知识</h2>
             <div class="knowledge-card">
                 <h3 class="knowledge-title">💱 外汇业务如何设计？</h3>
-                <p class="knowledge-content">
-                    跨境支付中的外汇业务设计核心是<strong>合规换汇</strong>。主要模式：
-                </p>
+                <p class="knowledge-content">跨境支付中的外汇业务设计核心是<strong>合规换汇</strong>。主要模式：</p>
                 <ol style="margin-left: 20px; margin-bottom: 12px; line-height: 1.8;">
                     <li><strong>银行直连</strong>：与持牌银行合作，通过 API 实现实时换汇，汇率优但门槛高</li>
                     <li><strong>第三方支付机构</strong>：利用支付机构的外汇牌照，适合中小企业</li>
                     <li><strong>做市商模式</strong>：与 FX 做市商合作获取优惠汇率，适合大交易量</li>
                 </ol>
-                <p class="knowledge-content">
-                    <strong>关键合规点</strong>：交易真实性审核（合同/发票/物流）、反洗钱申报、个人/企业年度额度管理（个人$5 万/年）。
-                </p>
+                <p class="knowledge-content"><strong>关键合规点</strong>：交易真实性审核（合同/发票/物流）、反洗钱申报、个人/企业年度额度管理（个人$5 万/年）。</p>
                 <div class="knowledge-tags">
                     <span class="knowledge-tag">#外汇管理</span>
                     <span class="knowledge-tag">#换汇</span>
@@ -439,7 +273,6 @@
             <h2 class="section-title">📌 推荐阅读</h2>
             <p class="section-subtitle">为你精选的 4 条重要更新</p>
             <div class="picks-grid">
-                
                 <article class="pick-item pick-1">
                     <div class="pick-number">1</div>
                     <div class="pick-content">
@@ -449,7 +282,6 @@
                         <span class="pick-source">Coindesk</span>
                     </div>
                 </article>
-                
                 <article class="pick-item pick-2">
                     <div class="pick-number">2</div>
                     <div class="pick-content">
@@ -459,7 +291,6 @@
                         <span class="pick-source">Coindesk</span>
                     </div>
                 </article>
-                
                 <article class="pick-item pick-3">
                     <div class="pick-number">3</div>
                     <div class="pick-content">
@@ -469,7 +300,6 @@
                         <span class="pick-source">GitHub</span>
                     </div>
                 </article>
-                
                 <article class="pick-item pick-4">
                     <div class="pick-number">4</div>
                     <div class="pick-content">
@@ -479,86 +309,45 @@
                         <span class="pick-source">ScienceDaily</span>
                     </div>
                 </article>
-                
             </div>
         </section>
         
         <div class="content">
-            
             <section class="topic-section regulation-section">
                 <h3 class="topic-title"><span class="topic-emoji">⚖️</span> 监管与合规</h3>
                 <p class="section-note">全球支付牌照 · 加密货币政策 · 合规要求</p>
                 <ul class="article-list">
-                    <li class="article-item">
-                        <span class="regulation-tag">稳定币监管</span>
-                        <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-link" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards</a>
-                        <span class="article-source">· Coindesk</span>
-                    </li>
-                    <li class="article-item">
-                        <span class="regulation-tag">支付牌照</span>
-                        <a href="https://www.coindesk.com/policy/2026/03/02/genius-act-stablecoin-legislation-gains-bipartisan-support-in-the-senate" class="article-link" target="_blank">GENIUS Act stablecoin legislation gains bipartisan support in the Senate</a>
-                        <span class="article-source">· Coindesk</span>
-                    </li>
-                    <li class="article-item">
-                        <span class="regulation-tag">美国 MSB</span>
-                        <a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-finreg-2019-04" class="article-link" target="_blank">FinCEN guidance on money transmitter licensing</a>
-                        <span class="article-source">· FinCEN</span>
-                    </li>
-                    <li class="article-item">
-                        <span class="regulation-tag">欧盟 PSD2</span>
-                        <a href="https://www.ecb.europa.eu/paym/groups/pdf/psd2/2026/psd2-review-2026.en.pdf" class="article-link" target="_blank">PSD2 review and payment institution licensing updates</a>
-                        <span class="article-source">· ECB</span>
-                    </li>
-                    <li class="article-item">
-                        <span class="regulation-tag">新加坡 MPI</span>
-                        <a href="https://www.mas.gov.sg/regulation/payments/payment-services-act" class="article-link" target="_blank">MAS Payment Services Act licensing framework</a>
-                        <span class="article-source">· MAS</span>
-                    </li>
+                    <li class="article-item"><span class="regulation-tag">稳定币监管</span><a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-link" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards</a><span class="article-source">· Coindesk</span></li>
+                    <li class="article-item"><span class="regulation-tag">支付牌照</span><a href="https://www.coindesk.com/policy/2026/03/02/genius-act-stablecoin-legislation-gains-bipartisan-support-in-the-senate" class="article-link" target="_blank">GENIUS Act stablecoin legislation gains bipartisan support</a><span class="article-source">· Coindesk</span></li>
+                    <li class="article-item"><span class="regulation-tag">美国 MSB</span><a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-finreg-2019-04" class="article-link" target="_blank">FinCEN guidance on money transmitter licensing</a><span class="article-source">· FinCEN</span></li>
+                    <li class="article-item"><span class="regulation-tag">欧盟 PSD2</span><a href="https://www.ecb.europa.eu/paym/groups/pdf/psd2/2026/psd2-review-2026.en.pdf" class="article-link" target="_blank">PSD2 review and payment institution licensing updates</a><span class="article-source">· ECB</span></li>
+                    <li class="article-item"><span class="regulation-tag">新加坡 MPI</span><a href="https://www.mas.gov.sg/regulation/payments/payment-services-act" class="article-link" target="_blank">MAS Payment Services Act licensing framework</a><span class="article-source">· MAS</span></li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🧠</span> 大模型</h3>
                 <ul class="article-list">
-                    <li class="article-item">
-                        <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026) – Open Source LLM Updates</a>
-                        <span class="article-source">· LLM Stats</span>
-                    </li>
-                    <li class="article-item">
-                        <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a>
-                        <span class="article-source">· GitHub</span>
-                    </li>
+                    <li class="article-item"><a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a><span class="article-source">· LLM Stats</span></li>
+                    <li class="article-item"><a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a><span class="article-source">· GitHub</span></li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🚀</span> 前沿科技</h3>
                 <ul class="article-list">
-                    <li class="article-item">
-                        <a href="https://www.technologyreview.com/2026/03/02/1133811/the-download-protesting-ai-and-whats-floating-in-space/" class="article-link" target="_blank">The Download: protesting AI, and what's floating in space</a>
-                        <span class="article-source">· MIT Technology Review</span>
-                    </li>
-                    <li class="article-item">
-                        <a href="https://news.ycombinator.com/item?id=47219668" class="article-link" target="_blank">Ask HN: Who is hiring? (March 2026)</a>
-                        <span class="article-source">· Hacker News</span>
-                    </li>
+                    <li class="article-item"><a href="https://www.technologyreview.com/2026/03/02/1133811/the-download-protesting-ai-and-whats-floating-in-space/" class="article-link" target="_blank">The Download: protesting AI</a><span class="article-source">· MIT Technology Review</span></li>
+                    <li class="article-item"><a href="https://news.ycombinator.com/item?id=47219668" class="article-link" target="_blank">Ask HN: Who is hiring? (March 2026)</a><span class="article-source">· Hacker News</span></li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🪙</span> 加密货币</h3>
                 <ul class="article-list">
-                    <li class="article-item">
-                        <a href="https://www.coindesk.com/markets/2026/03/02/nasdaq-follows-cboe-joining-world-of-binary-bets-as-prediction-market-craze-hits-wall-street" class="article-link" target="_blank">Nasdaq follows Cboe joining world of 'binary bets'</a>
-                        <span class="article-source">· Coindesk</span>
-                    </li>
-                    <li class="article-item">
-                        <a href="https://www.coindesk.com/markets/2026/03/02/bitcoin-surges-above-usd68-000-amid-muted-stock-market-reaction-to-iran-war" class="article-link" target="_blank">Bitcoin surges above $68,000</a>
-                        <span class="article-source">· Coindesk</span>
-                    </li>
+                    <li class="article-item"><a href="https://www.coindesk.com/markets/2026/03/02/nasdaq-follows-cboe-joining-world-of-binary-bets-as-prediction-market-craze-hits-wall-street" class="article-link" target="_blank">Nasdaq follows Cboe joining world of 'binary bets'</a><span class="article-source">· Coindesk</span></li>
+                    <li class="article-item"><a href="https://www.coindesk.com/markets/2026/03/02/bitcoin-surges-above-usd68-000-amid-muted-stock-market-reaction-to-iran-war" class="article-link" target="_blank">Bitcoin surges above $68,000</a><span class="article-source">· Coindesk</span></li>
                 </ul>
             </section>
-            
         </div>
         
         <footer>
