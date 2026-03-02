@@ -117,6 +117,56 @@
             color: #f87171;
         }
         
+        .daily-knowledge {
+            padding: 32px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .daily-knowledge .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .knowledge-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #0284c7;
+        }
+        
+        .knowledge-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        
+        .knowledge-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        
+        .knowledge-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .knowledge-tag {
+            font-size: 12px;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
         .editors-picks {
             padding: 40px 32px;
             border-bottom: 1px solid var(--border);
@@ -361,6 +411,30 @@
             </div>
         </section>
         
+        <section class="daily-knowledge">
+            <h2 class="section-title">📚 每日跨境支付知识</h2>
+            <div class="knowledge-card">
+                <h3 class="knowledge-title">💱 外汇业务如何设计？</h3>
+                <p class="knowledge-content">
+                    跨境支付中的外汇业务设计核心是<strong>合规换汇</strong>。主要模式：
+                </p>
+                <ol style="margin-left: 20px; margin-bottom: 12px; line-height: 1.8;">
+                    <li><strong>银行直连</strong>：与持牌银行合作，通过 API 实现实时换汇，汇率优但门槛高</li>
+                    <li><strong>第三方支付机构</strong>：利用支付机构的外汇牌照，适合中小企业</li>
+                    <li><strong>做市商模式</strong>：与 FX 做市商合作获取优惠汇率，适合大交易量</li>
+                </ol>
+                <p class="knowledge-content">
+                    <strong>关键合规点</strong>：交易真实性审核（合同/发票/物流）、反洗钱申报、个人/企业年度额度管理（个人$5 万/年）。
+                </p>
+                <div class="knowledge-tags">
+                    <span class="knowledge-tag">#外汇管理</span>
+                    <span class="knowledge-tag">#换汇</span>
+                    <span class="knowledge-tag">#合规</span>
+                    <span class="knowledge-tag">#跨境支付</span>
+                </div>
+            </div>
+        </section>
+        
         <section class="editors-picks">
             <h2 class="section-title">📌 推荐阅读</h2>
             <p class="section-subtitle">为你精选的 4 条重要更新</p>
@@ -422,8 +496,23 @@
                     </li>
                     <li class="article-item">
                         <span class="regulation-tag">支付牌照</span>
-                        <a href="https://www.coindesk.com/policy/2026/03/02/genius-act-stablecoin-legislation-gains-bipartisan-support-in-the-senate" class="article-link" target="_blank">GENIUS Act stablecoin legislation gains bipartisan support</a>
+                        <a href="https://www.coindesk.com/policy/2026/03/02/genius-act-stablecoin-legislation-gains-bipartisan-support-in-the-senate" class="article-link" target="_blank">GENIUS Act stablecoin legislation gains bipartisan support in the Senate</a>
                         <span class="article-source">· Coindesk</span>
+                    </li>
+                    <li class="article-item">
+                        <span class="regulation-tag">美国 MSB</span>
+                        <a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-finreg-2019-04" class="article-link" target="_blank">FinCEN guidance on money transmitter licensing</a>
+                        <span class="article-source">· FinCEN</span>
+                    </li>
+                    <li class="article-item">
+                        <span class="regulation-tag">欧盟 PSD2</span>
+                        <a href="https://www.ecb.europa.eu/paym/groups/pdf/psd2/2026/psd2-review-2026.en.pdf" class="article-link" target="_blank">PSD2 review and payment institution licensing updates</a>
+                        <span class="article-source">· ECB</span>
+                    </li>
+                    <li class="article-item">
+                        <span class="regulation-tag">新加坡 MPI</span>
+                        <a href="https://www.mas.gov.sg/regulation/payments/payment-services-act" class="article-link" target="_blank">MAS Payment Services Act licensing framework</a>
+                        <span class="article-source">· MAS</span>
                     </li>
                 </ul>
             </section>
