@@ -5,134 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日科技简报 - 2026-03-02</title>
     <style>
-        :root {
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #1a1a1a;
-            --text-muted: #666666;
-            --border: #e5e5e5;
-            --accent: #2563eb;
-            --accent-light: #eff6ff;
-            --pick-1: #dc2626;
-            --pick-2: #ea580c;
-            --pick-3: #059669;
-            --pick-4: #7c3aed;
-        }
-        
+        :root { --bg: #fafafa; --card: #ffffff; --text: #1a1a1a; --text-muted: #666666; --border: #e5e5e5; --accent: #2563eb; --accent-light: #eff6ff; --pick-1: #dc2626; --pick-2: #ea580c; --pick-3: #059669; --pick-4: #7c3aed; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); padding: 0; }
+        .container { max-width: 960px; margin: 0 auto; background: var(--card); min-height: 100vh; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        header { padding: 48px 32px 32px; border-bottom: 1px solid var(--border); }
+        header h1 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+        header .date { font-size: 14px; color: var(--text-muted); }
+        header .stats { display: flex; gap: 16px; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background: var(--card);
-            min-height: 100vh;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        
-        header {
-            padding: 48px 32px 32px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        header h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 8px;
-        }
-        
-        header .date {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        
-        header .stats {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        
-        .crypto-prices {
-            padding: 32px;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
-            color: white;
-        }
-        
-        .crypto-prices .section-title,
-        .crypto-prices .section-subtitle {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .crypto-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-        
-        .crypto-item {
-            background: rgba(255,255,255,0.1);
-            padding: 16px;
-            border-radius: 8px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-        
+        .crypto-prices { padding: 32px; background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); color: white; }
+        .crypto-prices .section-title, .crypto-prices .section-subtitle { color: rgba(255,255,255,0.9); }
+        .crypto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 20px; }
+        .crypto-item { background: rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; text-align: center; }
         .crypto-symbol { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; opacity: 0.9; }
         .crypto-price { display: block; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
         .crypto-change { display: block; font-size: 13px; font-weight: 500; }
         .crypto-item.up .crypto-change { color: #4ade80; }
         .crypto-item.down .crypto-change { color: #f87171; }
         
-        .daily-plugin {
-            padding: 32px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .daily-plugin .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .plugin-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 24px;
-            border-left: 4px solid #e94560;
-        }
-        
-        .plugin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        
-        .plugin-priority {
-            font-size: 14px;
-            font-weight: 600;
-            background: #e94560;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-        
+        .daily-plugin { padding: 32px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; border-bottom: 1px solid var(--border); }
+        .daily-plugin .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+        .plugin-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 24px; border-left: 4px solid #e94560; }
+        .plugin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 12px; }
+        .plugin-priority { font-size: 14px; font-weight: 600; background: #e94560; color: white; padding: 4px 12px; border-radius: 20px; }
         .plugin-engagement { font-size: 13px; opacity: 0.8; }
         .plugin-name { font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
         .plugin-desc { font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.6; }
@@ -140,15 +36,19 @@
         .detail-item strong { display: block; font-size: 13px; color: #4cc9f0; margin-bottom: 6px; }
         .detail-item p { font-size: 14px; line-height: 1.6; opacity: 0.9; }
         
-        .daily-knowledge {
-            padding: 32px;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-bottom: 1px solid var(--border);
-        }
+        .ace-insights { padding: 32px; background: linear-gradient(135deg, #064e3b 0%, #047857 100%); color: white; border-bottom: 1px solid var(--border); }
+        .ace-insights .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+        .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+        .insight-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); }
+        .insight-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #6ee7b7; }
+        .insight-content { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+        .insight-content strong { color: #ffffff; font-weight: 600; }
         
+        .daily-knowledge { padding: 32px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-bottom: 1px solid var(--border); }
         .daily-knowledge .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text); }
         .knowledge-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #0284c7; }
         .knowledge-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+        .knowledge-source { font-size: 13px; color: #0369a1; font-weight: 500; margin-bottom: 12px; }
         .knowledge-content { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
         .knowledge-tags { display: flex; gap: 8px; flex-wrap: wrap; }
         .knowledge-tag { font-size: 12px; color: #0369a1; background: #e0f2fe; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
@@ -158,15 +58,9 @@
         .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
         .picks-grid { display: flex; flex-direction: column; gap: 20px; }
         .pick-item { display: flex; gap: 16px; padding: 20px; background: var(--accent-light); border-radius: 12px; border-left: 4px solid var(--accent); }
-        .pick-1 { border-left-color: var(--pick-1); }
-        .pick-2 { border-left-color: var(--pick-2); }
-        .pick-3 { border-left-color: var(--pick-3); }
-        .pick-4 { border-left-color: var(--pick-4); }
+        .pick-1 { border-left-color: var(--pick-1); } .pick-2 { border-left-color: var(--pick-2); } .pick-3 { border-left-color: var(--pick-3); } .pick-4 { border-left-color: var(--pick-4); }
         .pick-number { font-size: 24px; font-weight: 700; color: var(--text-muted); line-height: 1; }
-        .pick-1 .pick-number { color: var(--pick-1); }
-        .pick-2 .pick-number { color: var(--pick-2); }
-        .pick-3 .pick-number { color: var(--pick-3); }
-        .pick-4 .pick-number { color: var(--pick-4); }
+        .pick-1 .pick-number { color: var(--pick-1); } .pick-2 .pick-number { color: var(--pick-2); } .pick-3 .pick-number { color: var(--pick-3); } .pick-4 .pick-number { color: var(--pick-4); }
         .pick-content { flex: 1; }
         .pick-reason { display: inline-block; font-size: 12px; color: var(--text-muted); background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
         .pick-summary { display: block; font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 8px; padding: 10px; background: rgba(255,255,255,0.6); border-radius: 6px; }
@@ -205,13 +99,7 @@
         <header>
             <h1>每日科技简报</h1>
             <div class="date">2026-03-02</div>
-            <div class="stats">
-                <span>精选 24 条</span>
-                <span>·</span>
-                <span>RSS 200</span>
-                <span>·</span>
-                <span>Web 56</span>
-            </div>
+            <div class="stats"><span>精选 24 条</span><span>·</span><span>RSS 200</span><span>·</span><span>Web 56</span></div>
         </header>
         
         <section class="crypto-prices">
@@ -237,14 +125,26 @@
                 <h3 class="plugin-name">Memory LanceDB Pro</h3>
                 <p class="plugin-desc">LanceDB 驱动的长期记忆系统，支持向量 + 关键词混合检索，多 scope 隔离</p>
                 <div class="plugin-details">
-                    <div class="detail-item">
-                        <strong>💡 实际用途</strong>
-                        <p>记住舟哥的技术偏好、项目进展、对话历史。跨会话保持一致性，不再每次都说"我是谁"。</p>
-                    </div>
-                    <div class="detail-item">
-                        <strong>🎯 为什么推荐给你</strong>
-                        <p>你是全栈技术合伙人，需要记住舟哥的每个项目细节。这个插件让你不再是"金鱼记忆"，而是真正的长期助手。</p>
-                    </div>
+                    <div class="detail-item"><strong>💡 实际用途</strong><p>记住舟哥的技术偏好、项目进展、对话历史。跨会话保持一致性，不再每次都说"我是谁"。</p></div>
+                    <div class="detail-item"><strong>🎯 为什么推荐给你</strong><p>你是全栈技术合伙人，需要记住舟哥的每个项目细节。这个插件让你不再是"金鱼记忆"，而是真正的长期助手。</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="ace-insights">
+            <h2 class="section-title">💡 王牌洞察 · 行动建议</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3 class="insight-title">🎯 Polymarket 机会</h3>
+                    <p class="insight-content">Nasdaq 进场预测市场意味着传统金融认可这个赛道。<strong>行动建议</strong>：关注监管友好型预测项目，避开纯加密货币类市场。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">💳 支付架构建议</h3>
+                    <p class="insight-content">稳定币监管收紧，USDC/USDT 收益可能下降。<strong>行动建议</strong>：提前布局多法币通道，减少对单一稳定币依赖。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">🤖 AI 技术栈更新</h3>
+                    <p class="insight-content">Ollama 修复 Qwen 3.5 问题，本地部署更稳定。<strong>行动建议</strong>：如果在用 Qwen 3.5，建议更新到最新版避免崩溃。</p>
                 </div>
             </div>
         </section>
@@ -253,6 +153,7 @@
             <h2 class="section-title">📚 每日跨境支付知识</h2>
             <div class="knowledge-card">
                 <h3 class="knowledge-title">💱 外汇业务如何设计？</h3>
+                <p class="knowledge-source">📝 来源：陈天宇宙 · 支付架构师手记</p>
                 <p class="knowledge-content">跨境支付中的外汇业务设计核心是<strong>合规换汇</strong>。主要模式：</p>
                 <ol style="margin-left: 20px; margin-bottom: 12px; line-height: 1.8;">
                     <li><strong>银行直连</strong>：与持牌银行合作，通过 API 实现实时换汇，汇率优但门槛高</li>
