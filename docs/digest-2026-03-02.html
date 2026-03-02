@@ -52,6 +52,78 @@
         .content {
             padding: 40px;
         }
+        .executive-summary, .action-items {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-left: 4px solid #667eea;
+        }
+        .executive-summary h2, .action-items h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-icon { font-size: 22px; }
+        .insights, .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .insight-item, .action-item {
+            background: white;
+            border-radius: 8px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .insight-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .insight-title, .action-title {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+        }
+        .insight-title:hover, .action-title:hover {
+            text-decoration: underline;
+        }
+        .action-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        .action-label {
+            background: #10b981;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .action-tag, .relevance-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .relevance-tag {
+            display: inline-block;
+            margin-top: 6px;
+            margin-right: 4px;
+        }
         .topic-section {
             margin-bottom: 40px;
         }
@@ -128,7 +200,7 @@
             <h1>📰 每日科技简报</h1>
             <div class="date">2026-03-02</div>
             <div class="stats">
-                <span class="stat">📄 共 19 条</span>
+                <span class="stat">📄 精选 19 条</span>
                 <span class="stat">📰 RSS 200</span>
                 <span class="stat">🌐 Web 56</span>
                 <span class="stat">💻 GitHub 3</span>
@@ -136,6 +208,69 @@
         </header>
         
         <div class="content">
+            
+        <section class="executive-summary">
+            <h2><span class="section-icon">💎</span> 核心洞察</h2>
+            <div class="insights">
+        
+                <div class="insight-item">
+                    <span class="insight-badge">🆕 新产品/更新</span>
+                    <a href="https://llm-stats.com/ai-news" target="_blank" class="insight-title">LLM News Today (March 2026)</a>
+                </div>
+            
+                <div class="insight-item">
+                    <span class="insight-badge">🆕 新产品/更新</span>
+                    <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank" class="insight-title">Artificial Intelligence News</a>
+                </div>
+            
+                <div class="insight-item">
+                    <span class="insight-badge">🆕 新产品/更新</span>
+                    <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" target="_blank" class="insight-title">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
+                </div>
+            
+            </div>
+        </section>
+        
+            
+        <section class="action-items">
+            <h2><span class="section-icon">🎯</span> 对你的价值</h2>
+            <div class="actions">
+        
+                <div class="action-item">
+                    <div class="action-header">
+                        <span class="action-label">建议关注</span>
+                        <span class="action-tag">🤖 AI</span>
+                    </div>
+                    <a href="https://llm-stats.com/ai-news" target="_blank" class="action-title">LLM News Today (March 2026)</a>
+                </div>
+            
+                <div class="action-item">
+                    <div class="action-header">
+                        <span class="action-label">可选阅读</span>
+                        <span class="action-tag">💻 全栈</span>
+                    </div>
+                    <a href="https://www.ycombinator.com/companies/reflex/jobs" target="_blank" class="action-title">Reflex (YC W23) Is Hiring Software Engineers</a>
+                </div>
+            
+                <div class="action-item">
+                    <div class="action-header">
+                        <span class="action-label">可选阅读</span>
+                        <span class="action-tag">💳 支付</span>
+                    </div>
+                    <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" target="_blank" class="action-title">Crypto world faces growing pressure to relent on stablecoin rewards to win bi...</a>
+                </div>
+            
+                <div class="action-item">
+                    <div class="action-header">
+                        <span class="action-label">可选阅读</span>
+                        <span class="action-tag">💻 全栈</span>
+                    </div>
+                    <a href="https://www.qbitai.com/2026/03/383235.html" target="_blank" class="action-title">官宣｜FlagOS 镜像登陆腾讯云 HAI社区，快速部署OpenClaw 实现“养虾”自由</a>
+                </div>
+            
+            </div>
+        </section>
+        
             
             <section class="topic-section">
                 <h2><span class="topic-emoji">🧠</span> LLM / 大模型</h2>
@@ -147,6 +282,7 @@
                     <span class="source">Web Search</span>
                     <span class="score">⭐ 7.0</span>
                 </div>
+                <span class="relevance-tag">🤖 AI</span>
             </div>
             
             <div class="article">
@@ -155,6 +291,7 @@
                     <span class="source">Web Search</span>
                     <span class="score">⭐ 7.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -163,6 +300,7 @@
                     <span class="source">Gary Marcus</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -171,6 +309,7 @@
                     <span class="source">Ollama</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
                 </div>
@@ -186,6 +325,7 @@
                     <span class="source">Web Search</span>
                     <span class="score">⭐ 7.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -194,6 +334,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                <span class="relevance-tag">💻 全栈</span>
             </div>
             
             <div class="article">
@@ -202,6 +343,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -210,6 +352,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -218,6 +361,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -226,6 +370,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -234,6 +379,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -242,6 +388,7 @@
                     <span class="source">Hacker News Frontpage</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
                 </div>
@@ -257,6 +404,7 @@
                     <span class="source">CoinDesk</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -265,6 +413,7 @@
                     <span class="source">CoinDesk</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -273,6 +422,7 @@
                     <span class="source">CoinDesk</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                <span class="relevance-tag">💳 支付</span>
             </div>
             
             <div class="article">
@@ -281,6 +431,7 @@
                     <span class="source">The Block</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                <span class="relevance-tag">🎯 Polymarket</span>
             </div>
             
             <div class="article">
@@ -289,6 +440,7 @@
                     <span class="source">The Block</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
             <div class="article">
@@ -297,6 +449,7 @@
                     <span class="source">The Block</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
                 </div>
@@ -312,6 +465,7 @@
                     <span class="source">OpenClaw</span>
                     <span class="score">⭐ 5.0</span>
                 </div>
+                
             </div>
             
                 </div>
