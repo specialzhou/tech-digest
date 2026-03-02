@@ -5,476 +5,403 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日科技简报 - 2026-03-02</title>
     <style>
+        :root {
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --pick-1: #dc2626;
+            --pick-2: #ea580c;
+            --pick-3: #059669;
+            --pick-4: #7c3aed;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            color: var(--text);
+            background: var(--bg);
+            padding: 0;
         }
+        
         .container {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            background: var(--card);
+            min-height: 100vh;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
+        
+        /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+            padding: 48px 32px 32px;
+            border-bottom: 1px solid var(--border);
         }
+        
         header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
         }
+        
         header .date {
-            font-size: 16px;
-            opacity: 0.9;
+            font-size: 14px;
+            color: var(--text-muted);
         }
+        
         header .stats {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 16px;
             margin-top: 20px;
-            flex-wrap: wrap;
+            font-size: 13px;
+            color: var(--text-muted);
         }
-        header .stat {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+        
+        /* Editor's Picks */
+        .editors-picks {
+            padding: 40px 32px;
+            border-bottom: 1px solid var(--border);
         }
-        .content {
-            padding: 40px;
-        }
-        .executive-summary, .action-items {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 32px;
-            border-left: 4px solid #667eea;
-        }
-        .executive-summary h2, .action-items h2 {
+        
+        .section-title {
             font-size: 18px;
-            color: #333;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        
+        .picks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .pick-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .pick-1 { border-left-color: var(--pick-1); }
+        .pick-2 { border-left-color: var(--pick-2); }
+        .pick-3 { border-left-color: var(--pick-3); }
+        .pick-4 { border-left-color: var(--pick-4); }
+        
+        .pick-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-muted);
+            line-height: 1;
+        }
+        
+        .pick-1 .pick-number { color: var(--pick-1); }
+        .pick-2 .pick-number { color: var(--pick-2); }
+        .pick-3 .pick-number { color: var(--pick-3); }
+        .pick-4 .pick-number { color: var(--pick-4); }
+        
+        .pick-content {
+            flex: 1;
+        }
+        
+        .pick-reason {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .pick-title {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        
+        .pick-title:hover {
+            color: var(--accent);
+        }
+        
+        .pick-source {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        /* Topic Sections */
+        .content {
+            padding: 40px 32px;
+        }
+        
+        .topic-section {
+            margin-bottom: 40px;
+        }
+        
+        .topic-title {
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .section-icon { font-size: 22px; }
-        .insights, .actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        
+        .topic-emoji {
+            font-size: 18px;
         }
-        .insight-item, .action-item {
-            background: white;
-            border-radius: 8px;
-            padding: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        
+        .article-list {
+            list-style: none;
         }
-        .insight-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 6px;
+        
+        .article-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
-        .insight-title, .action-title {
-            color: #667eea;
+        
+        .article-item:last-child {
+            border-bottom: none;
+        }
+        
+        .article-link {
+            font-size: 15px;
+            color: var(--text);
             text-decoration: none;
-            font-weight: 500;
-            display: block;
+            line-height: 1.5;
         }
-        .insight-title:hover, .action-title:hover {
-            text-decoration: underline;
+        
+        .article-link:hover {
+            color: var(--accent);
         }
-        .action-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-        }
-        .action-label {
-            background: #10b981;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-        .action-tag, .relevance-tag {
-            background: #e9ecef;
-            color: #495057;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-        .relevance-tag {
-            display: inline-block;
-            margin-top: 6px;
-            margin-right: 4px;
-        }
-        .topic-section {
-            margin-bottom: 40px;
-        }
-        .topic-section h2 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .topic-emoji { font-size: 24px; }
-        .article {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .article-title {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .article-title:hover {
-            text-decoration: underline;
-        }
-        .article-meta {
-            display: flex;
-            gap: 12px;
+        
+        .article-source {
             font-size: 13px;
-            color: #666;
+            color: var(--text-muted);
+            margin-left: 8px;
         }
-        .source {
-            background: #e9ecef;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-        .score {
-            color: #f59e0b;
-        }
+        
+        /* Footer */
         footer {
-            background: #f8f9fa;
-            padding: 20px 40px;
+            padding: 24px 32px;
+            border-top: 1px solid var(--border);
             text-align: center;
             font-size: 13px;
-            color: #666;
-            border-top: 1px solid #e9ecef;
+            color: var(--text-muted);
         }
+        
         footer a {
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
+        
+        /* Mobile */
         @media (max-width: 600px) {
-            body { padding: 10px; }
-            .content { padding: 20px; }
-            header { padding: 30px 20px; }
-            header h1 { font-size: 22px; }
+            .container { max-width: 100%; }
+            header, .editors-picks, .content, footer { padding-left: 20px; padding-right: 20px; }
+            header h1 { font-size: 20px; }
+            .pick-item { padding: 16px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📰 每日科技简报</h1>
+            <h1>每日科技简报</h1>
             <div class="date">2026-03-02</div>
             <div class="stats">
-                <span class="stat">📄 精选 19 条</span>
-                <span class="stat">📰 RSS 200</span>
-                <span class="stat">🌐 Web 56</span>
-                <span class="stat">💻 GitHub 3</span>
+                <span>精选 17 条</span>
+                <span>·</span>
+                <span>RSS 200</span>
+                <span>·</span>
+                <span>Web 56</span>
             </div>
         </header>
         
+        
+        <section class="editors-picks">
+            <h2 class="section-title">📌 推荐阅读</h2>
+            <p class="section-subtitle">为你精选的 4 条重要更新</p>
+            <div class="picks-grid">
+        
+                <article class="pick-item pick-1">
+                    <div class="pick-number">1</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">AI 技术栈更新</span>
+                        <a href="https://llm-stats.com/ai-news" class="pick-title" target="_blank">LLM News Today (March 2026)</a>
+                        <span class="pick-source">Web Search</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-2">
+                    <div class="pick-number">2</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">今日高价值</span>
+                        <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="pick-title" target="_blank">Artificial Intelligence News</a>
+                        <span class="pick-source">Web Search</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-3">
+                    <div class="pick-number">3</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">今日高价值</span>
+                        <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" class="pick-title" target="_blank">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
+                        <span class="pick-source">Web Search</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-4">
+                    <div class="pick-number">4</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">精选推荐</span>
+                        <a href="https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined" class="pick-title" target="_blank">Battle for Bitcoin's soul opens as first block supporting 'clean</a>
+                        <span class="pick-source">CoinDesk</span>
+                    </div>
+                </article>
+            
+            </div>
+        </section>
+        
+        
         <div class="content">
             
-        <section class="executive-summary">
-            <h2><span class="section-icon">💎</span> 核心洞察</h2>
-            <div class="insights">
-        
-                <div class="insight-item">
-                    <span class="insight-badge">🆕 新产品/更新</span>
-                    <a href="https://llm-stats.com/ai-news" target="_blank" class="insight-title">LLM News Today (March 2026)</a>
-                </div>
-            
-                <div class="insight-item">
-                    <span class="insight-badge">🆕 新产品/更新</span>
-                    <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank" class="insight-title">Artificial Intelligence News</a>
-                </div>
-            
-                <div class="insight-item">
-                    <span class="insight-badge">🆕 新产品/更新</span>
-                    <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" target="_blank" class="insight-title">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
-                </div>
-            
-            </div>
-        </section>
-        
-            
-        <section class="action-items">
-            <h2><span class="section-icon">🎯</span> 对你的价值</h2>
-            <div class="actions">
-        
-                <div class="action-item">
-                    <div class="action-header">
-                        <span class="action-label">建议关注</span>
-                        <span class="action-tag">🤖 AI</span>
-                    </div>
-                    <a href="https://llm-stats.com/ai-news" target="_blank" class="action-title">LLM News Today (March 2026)</a>
-                </div>
-            
-                <div class="action-item">
-                    <div class="action-header">
-                        <span class="action-label">可选阅读</span>
-                        <span class="action-tag">💻 全栈</span>
-                    </div>
-                    <a href="https://www.ycombinator.com/companies/reflex/jobs" target="_blank" class="action-title">Reflex (YC W23) Is Hiring Software Engineers</a>
-                </div>
-            
-                <div class="action-item">
-                    <div class="action-header">
-                        <span class="action-label">可选阅读</span>
-                        <span class="action-tag">💳 支付</span>
-                    </div>
-                    <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" target="_blank" class="action-title">Crypto world faces growing pressure to relent on stablecoin rewards to win bi...</a>
-                </div>
-            
-                <div class="action-item">
-                    <div class="action-header">
-                        <span class="action-label">可选阅读</span>
-                        <span class="action-tag">💻 全栈</span>
-                    </div>
-                    <a href="https://www.qbitai.com/2026/03/383235.html" target="_blank" class="action-title">官宣｜FlagOS 镜像登陆腾讯云 HAI社区，快速部署OpenClaw 实现“养虾”自由</a>
-                </div>
-            
-            </div>
-        </section>
-        
-            
             <section class="topic-section">
-                <h2><span class="topic-emoji">🧠</span> LLM / 大模型</h2>
-                <div class="articles">
+                <h3 class="topic-title"><span class="topic-emoji">🧠</span> 大模型</h3>
+                <ul class="article-list">
                     
-            <div class="article">
-                <a href="https://llm-stats.com/ai-news" class="article-title" target="_blank">LLM News Today (March 2026)</a>
-                <div class="article-meta">
-                    <span class="source">Web Search</span>
-                    <span class="score">⭐ 7.0</span>
-                </div>
-                <span class="relevance-tag">🤖 AI</span>
-            </div>
+            <li class="article-item">
+                <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a>
+                <span class="article-source">· Web Search</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="article-title" target="_blank">Artificial Intelligence News</a>
-                <div class="article-meta">
-                    <span class="source">Web Search</span>
-                    <span class="score">⭐ 7.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="article-link" target="_blank">Artificial Intelligence News</a>
+                <span class="article-source">· Web Search</span>
+            </li>
             
-            <div class="article">
-                <a href="https://garymarcus.substack.com/p/is-ai-already-killing-people-by-accident" class="article-title" target="_blank">Is AI already killing people by accident?</a>
-                <div class="article-meta">
-                    <span class="source">Gary Marcus</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://garymarcus.substack.com/p/is-ai-already-killing-people-by-accident" class="article-link" target="_blank">Is AI already killing people by accident?</a>
+                <span class="article-source">· Gary Marcus</span>
+            </li>
             
-            <div class="article">
-                <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-title" target="_blank">ollama v0.17.5</a>
-                <div class="article-meta">
-                    <span class="source">Ollama</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a>
+                <span class="article-source">· Ollama</span>
+            </li>
             
-                </div>
+                </ul>
             </section>
             
             <section class="topic-section">
-                <h2><span class="topic-emoji">🚀</span> 前沿科技</h2>
-                <div class="articles">
+                <h3 class="topic-title"><span class="topic-emoji">🚀</span> 前沿科技</h3>
+                <ul class="article-list">
                     
-            <div class="article">
-                <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" class="article-title" target="_blank">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
-                <div class="article-meta">
-                    <span class="source">Web Search</span>
-                    <span class="score">⭐ 7.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" class="article-link" target="_blank">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
+                <span class="article-source">· Web Search</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.ycombinator.com/companies/reflex/jobs" class="article-title" target="_blank">Reflex (YC W23) Is Hiring Software Engineers</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                <span class="relevance-tag">💻 全栈</span>
-            </div>
+            <li class="article-item">
+                <a href="https://www.ycombinator.com/companies/reflex/jobs" class="article-link" target="_blank">Reflex (YC W23) Is Hiring Software Engineers</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
             
-            <div class="article">
-                <a href="https://news.ycombinator.com/item?id=47220320" class="article-title" target="_blank">Launch HN: OctaPulse (YC W26)</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://news.ycombinator.com/item?id=47220320" class="article-link" target="_blank">Launch HN: OctaPulse (YC W26)</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.dhzdhd.dev/blog/gleam-executable" class="article-title" target="_blank">Packaging a Gleam app into a single executable</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.dhzdhd.dev/blog/gleam-executable" class="article-link" target="_blank">Packaging a Gleam app into a single executable</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
             
-            <div class="article">
-                <a href="https://eli.thegreenplace.net/2026/notes-on-lagrange-interpolating-polynomials/" class="article-title" target="_blank">Notes on Lagrange Interpolating Polynomials</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://eli.thegreenplace.net/2026/notes-on-lagrange-interpolating-polynomials/" class="article-link" target="_blank">Notes on Lagrange Interpolating Polynomials</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
             
-            <div class="article">
-                <a href="https://news.ycombinator.com/item?id=47219668" class="article-title" target="_blank">Ask HN: Who is hiring? (March 2026)</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://news.ycombinator.com/item?id=47219668" class="article-link" target="_blank">Ask HN: Who is hiring? (March 2026)</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
             
-            <div class="article">
-                <a href="https://blog.recurity-labs.com/2026-03-02/Farewell_Felix" class="article-title" target="_blank">Felix "fx" Lindner has died</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
-            
-            <div class="article">
-                <a href="https://health.ucdavis.edu/news/headlines/first-ever-in-utero-stem-cell-therapy-for-fetal-spina-bifida-repair-is-safe-study-finds/2026/02" class="article-title" target="_blank">First</a>
-                <div class="article-meta">
-                    <span class="source">Hacker News Frontpage</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
-            
-                </div>
+                </ul>
             </section>
             
             <section class="topic-section">
-                <h2><span class="topic-emoji">🪙</span> 加密货币</h2>
-                <div class="articles">
+                <h3 class="topic-title"><span class="topic-emoji">🪙</span> 加密货币</h3>
+                <ul class="article-list">
                     
-            <div class="article">
-                <a href="https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined" class="article-title" target="_blank">Battle for Bitcoin's soul opens as first block supporting 'clean</a>
-                <div class="article-meta">
-                    <span class="source">CoinDesk</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined" class="article-link" target="_blank">Battle for Bitcoin's soul opens as first block supporting 'clean</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.coindesk.com/business/2026/03/02/weekend-warriors-how-hyperliquid-became-retail-s-bear-market-playground" class="article-title" target="_blank">Weekend warriors: How HyperLiquid became retail’s bear market playground</a>
-                <div class="article-meta">
-                    <span class="source">CoinDesk</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.coindesk.com/business/2026/03/02/weekend-warriors-how-hyperliquid-became-retail-s-bear-market-playground" class="article-link" target="_blank">Weekend warriors: How HyperLiquid became retail’s bear market playg...</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-title" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards to win bi...</a>
-                <div class="article-meta">
-                    <span class="source">CoinDesk</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                <span class="relevance-tag">💳 支付</span>
-            </div>
+            <li class="article-item">
+                <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-link" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards...</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.theblock.co/post/391784/nasdaq-sec-prediction-style-binary-options-flagship-100-index-bloomberg?utm_source=rss&amp;utm_medium=rss" class="article-title" target="_blank">Nasdaq seeks SEC approval for prediction</a>
-                <div class="article-meta">
-                    <span class="source">The Block</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                <span class="relevance-tag">🎯 Polymarket</span>
-            </div>
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/391784/nasdaq-sec-prediction-style-binary-options-flagship-100-index-bloomberg?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Nasdaq seeks SEC approval for prediction</a>
+                <span class="article-source">· The Block</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.theblock.co/post/391790/cftc-chair-michael-selig-former-federal-prosecutor-david-miller-lead-enforcement-divison?utm_source=rss&amp;utm_medium=rss" class="article-title" target="_blank">CFTC taps former federal prosecutor David Miller to lead enforcement divison ...</a>
-                <div class="article-meta">
-                    <span class="source">The Block</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/391790/cftc-chair-michael-selig-former-federal-prosecutor-david-miller-lead-enforcement-divison?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">CFTC taps former federal prosecutor David Miller to lead enforcemen...</a>
+                <span class="article-source">· The Block</span>
+            </li>
             
-            <div class="article">
-                <a href="https://www.theblock.co/post/391781/crypto-outflows-700-largest-iranian-exchange-us-israeli-attack-elliptic?utm_source=rss&amp;utm_medium=rss" class="article-title" target="_blank">Crypto outflows spike 700% on largest Iranian exchange following US</a>
-                <div class="article-meta">
-                    <span class="source">The Block</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/391781/crypto-outflows-700-largest-iranian-exchange-us-israeli-attack-elliptic?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Crypto outflows spike 700% on largest Iranian exchange following US</a>
+                <span class="article-source">· The Block</span>
+            </li>
             
-                </div>
+                </ul>
             </section>
             
             <section class="topic-section">
-                <h2><span class="topic-emoji">🤖</span> AI Agent</h2>
-                <div class="articles">
+                <h3 class="topic-title"><span class="topic-emoji">🤖</span> AI Agent</h3>
+                <ul class="article-list">
                     
-            <div class="article">
-                <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.1" class="article-title" target="_blank">openclaw v2026.3.1</a>
-                <div class="article-meta">
-                    <span class="source">OpenClaw</span>
-                    <span class="score">⭐ 5.0</span>
-                </div>
-                
-            </div>
+            <li class="article-item">
+                <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.1" class="article-link" target="_blank">openclaw v2026.3.1</a>
+                <span class="article-source">· OpenClaw</span>
+            </li>
             
-                </div>
+                </ul>
             </section>
             
         </div>
         
         <footer>
-            <p><a href="index.html" style="color: #667eea;">📋 查看所有简报</a> | Generated by <a href="https://github.com/draco-agent/tech-news-digest" target="_blank">tech-news-digest</a></p>
+            <a href="index.html">查看所有简报</a>
+            ·
+            <a href="https://github.com/draco-agent/tech-news-digest" target="_blank">tech-news-digest</a>
         </footer>
     </div>
 </body>
