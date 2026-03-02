@@ -37,7 +37,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
-        /* Header */
         header {
             padding: 48px 32px 32px;
             border-bottom: 1px solid var(--border);
@@ -63,7 +62,6 @@
             color: var(--text-muted);
         }
         
-        /* Editor's Picks */
         .editors-picks {
             padding: 40px 32px;
             border-bottom: 1px solid var(--border);
@@ -84,7 +82,7 @@
         .picks-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
         
         .pick-item {
@@ -158,7 +156,6 @@
             display: block;
         }
         
-        /* Topic Sections */
         .content {
             padding: 40px 32px;
         }
@@ -210,7 +207,6 @@
             margin-left: 8px;
         }
         
-        /* Footer */
         footer {
             padding: 24px 32px;
             border-top: 1px solid var(--border);
@@ -224,7 +220,6 @@
             text-decoration: none;
         }
         
-        /* Mobile */
         @media (max-width: 600px) {
             .container { max-width: 100%; }
             header, .editors-picks, .content, footer { padding-left: 20px; padding-right: 20px; }
@@ -239,7 +234,7 @@
             <h1>每日科技简报</h1>
             <div class="date">2026-03-02</div>
             <div class="stats">
-                <span>精选 17 条</span>
+                <span>精选 24 条</span>
                 <span>·</span>
                 <span>RSS 200</span>
                 <span>·</span>
@@ -247,168 +242,109 @@
             </div>
         </header>
         
-        
         <section class="editors-picks">
             <h2 class="section-title">📌 推荐阅读</h2>
             <p class="section-subtitle">为你精选的 4 条重要更新</p>
             <div class="picks-grid">
-        
+                
                 <article class="pick-item pick-1">
                     <div class="pick-number">1</div>
                     <div class="pick-content">
-                        <span class="pick-reason">AI 技术栈更新</span>
-                        <span class="pick-summary">Our AI Model Releases This Week section shows new AI model releases last 24 hour...</span>
-                        <a href="https://llm-stats.com/ai-news" class="pick-title" target="_blank">LLM News Today (March 2026)</a>
-                        <span class="pick-source">Web Search</span>
+                        <span class="pick-reason">你的 Polymarket 项目相关</span>
+                        <span class="pick-summary">纳斯达克交易所跟进 Cboe，推出二元预测产品。传统金融机构正加速进入预测市场领域，可能影响 Polymarket 等去中心化平台的竞争格局。</span>
+                        <a href="https://www.coindesk.com/markets/2026/03/02/nasdaq-follows-cboe-joining-world-of-binary-bets-as-prediction-market-craze-hits-wall-street" class="pick-title" target="_blank">Nasdaq 跟进 Cboe，预测市场热潮席卷华尔街</a>
+                        <span class="pick-source">Coindesk</span>
                     </div>
                 </article>
-            
+                
                 <article class="pick-item pick-2">
                     <div class="pick-number">2</div>
                     <div class="pick-content">
-                        <span class="pick-reason">今日高价值</span>
-                        <span class="pick-summary">The Human Brain May Work More Like AI Than Anyone Expected · Jan. 21, 2026  Sci...</span>
-                        <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="pick-title" target="_blank">Artificial Intelligence News</a>
-                        <span class="pick-source">Web Search</span>
+                        <span class="pick-reason">跨境支付架构相关</span>
+                        <span class="pick-summary">全球监管机构加强对稳定币收益产品的审查。跨境支付架构需关注合规风险，可能影响 USDC/USDT 等稳定币的收益率策略。</span>
+                        <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="pick-title" target="_blank">加密货币世界面临稳定币收益监管压力</a>
+                        <span class="pick-source">Coindesk</span>
                     </div>
                 </article>
-            
+                
                 <article class="pick-item pick-3">
                     <div class="pick-number">3</div>
                     <div class="pick-content">
-                        <span class="pick-reason">今日高价值</span>
-                        <span class="pick-summary">*************************** Welcome to AI Uncovered, your ultimate destination f...</span>
-                        <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" class="pick-title" target="_blank">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
-                        <span class="pick-source">Web Search</span>
+                        <span class="pick-reason">AI 技术栈更新</span>
+                        <span class="pick-summary">Ollama 更新修复 Qwen 3.5 模型在 GPU/CPU 分割时的崩溃问题，以及重复输出 bug。使用本地 LLM 部署需注意更新。</span>
+                        <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="pick-title" target="_blank">Ollama v0.17.5 发布，修复 Qwen 3.5 模型问题</a>
+                        <span class="pick-source">GitHub</span>
                     </div>
                 </article>
-            
+                
                 <article class="pick-item pick-4">
                     <div class="pick-number">4</div>
                     <div class="pick-content">
-                        <span class="pick-reason">精选推荐</span>
-                        
-                        <a href="https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined" class="pick-title" target="_blank">Battle for Bitcoin's soul opens as first block supporting 'clean</a>
-                        <span class="pick-source">CoinDesk</span>
+                        <span class="pick-reason">AI 前沿研究</span>
+                        <span class="pick-summary">ScienceDaily 报道：科学家发现人脑处理口语的方式与先进 AI 语言模型相似。认知科学与 AI 研究的新交叉点。</span>
+                        <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="pick-title" target="_blank">人类大脑处理语言的方式可能更像 AI</a>
+                        <span class="pick-source">ScienceDaily</span>
                     </div>
                 </article>
-            
+                
             </div>
         </section>
-        
         
         <div class="content">
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🧠</span> 大模型</h3>
                 <ul class="article-list">
-                    
-            <li class="article-item">
-                <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a>
-                <span class="article-source">· Web Search</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" class="article-link" target="_blank">Artificial Intelligence News</a>
-                <span class="article-source">· Web Search</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://garymarcus.substack.com/p/is-ai-already-killing-people-by-accident" class="article-link" target="_blank">Is AI already killing people by accident?</a>
-                <span class="article-source">· Gary Marcus</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a>
-                <span class="article-source">· Ollama</span>
-            </li>
-            
+                    <li class="article-item">
+                        <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026) – Open Source LLM Updates</a>
+                        <span class="article-source">· LLM Stats</span>
+                    </li>
+                    <li class="article-item">
+                        <a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a>
+                        <span class="article-source">· GitHub</span>
+                    </li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🚀</span> 前沿科技</h3>
                 <ul class="article-list">
-                    
-            <li class="article-item">
-                <a href="https://scitech.whatfinger.com/2026/02/28/top-15-new-breakthrough-technologies-of-2026-according-to-mit/" class="article-link" target="_blank">Top 15 New Breakthrough Technologies of 2026 (According to MIT)</a>
-                <span class="article-source">· Web Search</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.ycombinator.com/companies/reflex/jobs" class="article-link" target="_blank">Reflex (YC W23) Is Hiring Software Engineers</a>
-                <span class="article-source">· Hacker News Frontpage</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://news.ycombinator.com/item?id=47220320" class="article-link" target="_blank">Launch HN: OctaPulse (YC W26)</a>
-                <span class="article-source">· Hacker News Frontpage</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.dhzdhd.dev/blog/gleam-executable" class="article-link" target="_blank">Packaging a Gleam app into a single executable</a>
-                <span class="article-source">· Hacker News Frontpage</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://eli.thegreenplace.net/2026/notes-on-lagrange-interpolating-polynomials/" class="article-link" target="_blank">Notes on Lagrange Interpolating Polynomials</a>
-                <span class="article-source">· Hacker News Frontpage</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://news.ycombinator.com/item?id=47219668" class="article-link" target="_blank">Ask HN: Who is hiring? (March 2026)</a>
-                <span class="article-source">· Hacker News Frontpage</span>
-            </li>
-            
+                    <li class="article-item">
+                        <a href="https://www.technologyreview.com/2026/03/02/1133811/the-download-protesting-ai-and-whats-floating-in-space/" class="article-link" target="_blank">The Download: protesting AI, and what's floating in space</a>
+                        <span class="article-source">· MIT Technology Review</span>
+                    </li>
+                    <li class="article-item">
+                        <a href="https://news.ycombinator.com/item?id=47219668" class="article-link" target="_blank">Ask HN: Who is hiring? (March 2026)</a>
+                        <span class="article-source">· Hacker News</span>
+                    </li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🪙</span> 加密货币</h3>
                 <ul class="article-list">
-                    
-            <li class="article-item">
-                <a href="https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined" class="article-link" target="_blank">Battle for Bitcoin's soul opens as first block supporting 'clean</a>
-                <span class="article-source">· CoinDesk</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.coindesk.com/business/2026/03/02/weekend-warriors-how-hyperliquid-became-retail-s-bear-market-playground" class="article-link" target="_blank">Weekend warriors: How HyperLiquid became retail’s bear market playg...</a>
-                <span class="article-source">· CoinDesk</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-link" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards...</a>
-                <span class="article-source">· CoinDesk</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.theblock.co/post/391784/nasdaq-sec-prediction-style-binary-options-flagship-100-index-bloomberg?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Nasdaq seeks SEC approval for prediction</a>
-                <span class="article-source">· The Block</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.theblock.co/post/391790/cftc-chair-michael-selig-former-federal-prosecutor-david-miller-lead-enforcement-divison?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">CFTC taps former federal prosecutor David Miller to lead enforcemen...</a>
-                <span class="article-source">· The Block</span>
-            </li>
-            
-            <li class="article-item">
-                <a href="https://www.theblock.co/post/391781/crypto-outflows-700-largest-iranian-exchange-us-israeli-attack-elliptic?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Crypto outflows spike 700% on largest Iranian exchange following US</a>
-                <span class="article-source">· The Block</span>
-            </li>
-            
+                    <li class="article-item">
+                        <a href="https://www.coindesk.com/markets/2026/03/02/nasdaq-follows-cboe-joining-world-of-binary-bets-as-prediction-market-craze-hits-wall-street" class="article-link" target="_blank">Nasdaq follows Cboe joining world of 'binary bets'</a>
+                        <span class="article-source">· Coindesk</span>
+                    </li>
+                    <li class="article-item">
+                        <a href="https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize" class="article-link" target="_blank">Crypto world faces growing pressure to relent on stablecoin rewards</a>
+                        <span class="article-source">· Coindesk</span>
+                    </li>
+                    <li class="article-item">
+                        <a href="https://www.coindesk.com/markets/2026/03/02/bitcoin-surges-above-usd68-000-amid-muted-stock-market-reaction-to-iran-war" class="article-link" target="_blank">Bitcoin surges above $68,000</a>
+                        <span class="article-source">· Coindesk</span>
+                    </li>
                 </ul>
             </section>
             
             <section class="topic-section">
                 <h3 class="topic-title"><span class="topic-emoji">🤖</span> AI Agent</h3>
                 <ul class="article-list">
-                    
-            <li class="article-item">
-                <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.1" class="article-link" target="_blank">openclaw v2026.3.1</a>
-                <span class="article-source">· OpenClaw</span>
-            </li>
-            
+                    <li class="article-item">
+                        <a href="https://simonwillison.net/guides/agentic-engineering-patterns/gif-optimization/" class="article-link" target="_blank">GIF optimization tool using WebAssembly and Gifsicle</a>
+                        <span class="article-source">· Simon Willison</span>
+                    </li>
                 </ul>
             </section>
             
