@@ -119,6 +119,81 @@
             color: #f87171;
         }
         
+        /* Investment Advice */
+        .investment-advice {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .advice-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .advice-content {
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .advice-row {
+            display: flex;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .advice-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .advice-label {
+            font-weight: 600;
+            min-width: 90px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .advice-value {
+            font-weight: 500;
+            color: white;
+        }
+        
+        .advice-reason {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+        }
+        
+        .advice-risk {
+            color: #fbbf24;
+            font-weight: 500;
+        }
+        
+        .sentiment-中 {
+            color: #9ca3af;
+        }
+        
+        .action-观 {
+            color: #9ca3af;
+        }
+        
+        .action-逢 {
+            color: #4ade80;
+        }
+        
+        .action-分 {
+            color: #60a5fa;
+        }
+        
+        .action-适 {
+            color: #fbbf24;
+        }
+        
+        .action-持 {
+            color: #4ade80;
+        }
+        
         /* Daily Plugin */
         .daily-plugin {
             padding: 32px;
@@ -512,14 +587,14 @@
     
                 <div class="crypto-item down">
                     <span class="crypto-symbol">BTC</span>
-                    <span class="crypto-price">$67,944.00</span>
-                    <span class="crypto-change">-2.2%</span>
+                    <span class="crypto-price">$68,136.00</span>
+                    <span class="crypto-change">-1.7%</span>
                 </div>
         
                 <div class="crypto-item down">
                     <span class="crypto-symbol">ETH</span>
-                    <span class="crypto-price">$1,969.66</span>
-                    <span class="crypto-change">-4.3%</span>
+                    <span class="crypto-price">$1,973.27</span>
+                    <span class="crypto-change">-3.9%</span>
                 </div>
         
                 <div class="crypto-item down">
@@ -530,16 +605,35 @@
         
                 <div class="crypto-item down">
                     <span class="crypto-symbol">SOL</span>
-                    <span class="crypto-price">$84.61</span>
-                    <span class="crypto-change">-4.2%</span>
+                    <span class="crypto-price">$84.82</span>
+                    <span class="crypto-change">-3.4%</span>
                 </div>
         
-                <div class="crypto-item down">
-                    <span class="crypto-symbol">LINK</span>
-                    <span class="crypto-price">$8.76</span>
-                    <span class="crypto-change">-3.8%</span>
+            </div>
+            <div class="investment-advice">
+                <h3 class="advice-title">📌 投资建议</h3>
+                <div class="advice-content">
+                    <div class="advice-row">
+                        <span class="advice-label">市场情绪：</span>
+                        <span class="advice-value sentiment-恐">恐惧</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">操作建议：</span>
+                        <span class="advice-value action-分">分批建仓</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">理由：</span>
+                        <span class="advice-reason">市场回调，可逐步建仓优质资产</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">关键位：</span>
+                        <span class="advice-value">支撑 $64,729 / 阻力 $71,542</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">⚠️ 风险：</span>
+                        <span class="advice-risk">关注美联储议息会议、CPI 数据、地缘政治局势</span>
+                    </div>
                 </div>
-        
             </div>
         </section>
     
