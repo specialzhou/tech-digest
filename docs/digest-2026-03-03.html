@@ -35,6 +35,8 @@
         .plugin-details { display: grid; gap: 16px; }
         .detail-item strong { display: block; font-size: 13px; color: #4cc9f0; margin-bottom: 6px; }
         .detail-item p { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+        .plugin-meta { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; opacity: 0.7; }
+        .plugin-meta a { color: #4cc9f0; text-decoration: none; }
         
         .ace-insights { padding: 32px; background: linear-gradient(135deg, #064e3b 0%, #047857 100%); color: white; border-bottom: 1px solid var(--border); }
         .ace-insights .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
@@ -119,14 +121,19 @@
             <h2 class="section-title">🔌 OpenClaw 插件推荐</h2>
             <div class="plugin-card">
                 <div class="plugin-header">
-                    <span class="plugin-priority">📈 强相关</span>
-                    <span class="plugin-engagement">👍 3.1k 点赞 · 890 转发</span>
+                    <span class="plugin-priority">🔥 必装</span>
+                    <span class="plugin-engagement">⭐ 245+ Stars</span>
                 </div>
-                <h3 class="plugin-name">Polymarket Autopilot</h3>
-                <p class="plugin-desc">预测市场自动交易机器人，支持自定义策略、7x24 小时监控、paper trading 模式</p>
+                <h3 class="plugin-name">Memory LanceDB Pro</h3>
+                <p class="plugin-desc">LanceDB 驱动的长期记忆系统，支持向量+BM25 混合检索、Cross-Encoder 重排序、多 scope 隔离</p>
                 <div class="plugin-details">
-                    <div class="detail-item"><strong>💡 实际用途</strong><p>自动监控 Polymarket 机会，根据预设策略下单、止盈、止损。支持回测和模拟交易。</p></div>
-                    <div class="detail-item"><strong>🎯 为什么推荐给你</strong><p>舟哥你在跑 Polymarket 项目。这个 bot 可以帮你测试策略，实盘前先用 paper trading 验证，降低试错成本。</p></div>
+                    <div class="detail-item"><strong>💡 实际用途</strong><p>记住舟哥的技术偏好、项目进展、对话历史。跨会话保持一致性，不再每次都说"我是谁"。</p></div>
+                    <div class="detail-item"><strong>🎯 为什么推荐给你</strong><p>你是全栈技术合伙人，需要记住舟哥的每个项目细节。这个插件让你不再是"金鱼记忆"，而是真正的长期助手。</p></div>
+                </div>
+                <div class="plugin-meta">
+                    <span>📊 <a href="https://github.com/win4r/memory-lancedb-pro" target="_blank">github.com/win4r/memory-lancedb-pro</a></span>
+                    <br>
+                    <span>📝 社区反馈：YouTube/Bilibili 完整教程，社区活跃开发中</span>
                 </div>
             </div>
         </section>
@@ -186,7 +193,9 @@
                     </div>
                 </article>
                 <article class="pick-item pick-2">
-                    <div class="pick-reason">跨境支付架构相关</span>
+                    <div class="pick-number">2</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">跨境支付架构相关</span>
                         <span class="pick-summary">mBridge 项目完成多 CBDC 原子交换测试，交易确认&lt;5 秒，成本降低 50%。可能重塑跨境支付格局。</span>
                         <a href="https://www.bis.org/press/p260303.htm" class="pick-title" target="_blank">mBridge completes multi-CBDC atomic swap trials</a>
                         <span class="pick-source">BIS</span>
