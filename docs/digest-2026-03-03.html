@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日科技简报 - 2026-03-03</title>
+    <style>
+        :root { --bg: #fafafa; --card: #ffffff; --text: #1a1a1a; --text-muted: #666666; --border: #e5e5e5; --accent: #2563eb; --accent-light: #eff6ff; --pick-1: #dc2626; --pick-2: #ea580c; --pick-3: #059669; --pick-4: #7c3aed; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); padding: 0; }
+        .container { max-width: 960px; margin: 0 auto; background: var(--card); min-height: 100vh; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        header { padding: 48px 32px 32px; border-bottom: 1px solid var(--border); }
+        header h1 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+        header .date { font-size: 14px; color: var(--text-muted); }
+        header .stats { display: flex; gap: 16px; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+        
+        .crypto-prices { padding: 32px; background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); color: white; }
+        .crypto-prices .section-title, .crypto-prices .section-subtitle { color: rgba(255,255,255,0.9); }
+        .crypto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 20px; }
+        .crypto-item { background: rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; text-align: center; }
+        .crypto-symbol { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; opacity: 0.9; }
+        .crypto-price { display: block; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .crypto-change { display: block; font-size: 13px; font-weight: 500; }
+        .crypto-item.up .crypto-change { color: #4ade80; }
+        .crypto-item.down .crypto-change { color: #f87171; }
+        
+        .daily-plugin { padding: 32px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; border-bottom: 1px solid var(--border); }
+        .daily-plugin .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+        .plugin-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 24px; border-left: 4px solid #e94560; }
+        .plugin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 12px; }
+        .plugin-priority { font-size: 14px; font-weight: 600; background: #e94560; color: white; padding: 4px 12px; border-radius: 20px; }
+        .plugin-engagement { font-size: 13px; opacity: 0.8; }
+        .plugin-name { font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+        .plugin-desc { font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.6; }
+        .plugin-details { display: grid; gap: 16px; }
+        .detail-item strong { display: block; font-size: 13px; color: #4cc9f0; margin-bottom: 6px; }
+        .detail-item p { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+        
+        .ace-insights { padding: 32px; background: linear-gradient(135deg, #064e3b 0%, #047857 100%); color: white; border-bottom: 1px solid var(--border); }
+        .ace-insights .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+        .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+        .insight-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); }
+        .insight-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #6ee7b7; }
+        .insight-content { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+        .insight-content strong { color: #ffffff; font-weight: 600; }
+        
+        .daily-knowledge { padding: 32px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-bottom: 1px solid var(--border); }
+        .daily-knowledge .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text); }
+        .knowledge-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #0284c7; }
+        .knowledge-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+        .knowledge-source { font-size: 13px; color: #0369a1; font-weight: 500; margin-bottom: 12px; }
+        .knowledge-content { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
+        .knowledge-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .knowledge-tag { font-size: 12px; color: #0369a1; background: #e0f2fe; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+        
+        .editors-picks { padding: 40px 32px; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+        .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+        .picks-grid { display: flex; flex-direction: column; gap: 20px; }
+        .pick-item { display: flex; gap: 16px; padding: 20px; background: var(--accent-light); border-radius: 12px; border-left: 4px solid var(--accent); }
+        .pick-1 { border-left-color: var(--pick-1); } .pick-2 { border-left-color: var(--pick-2); } .pick-3 { border-left-color: var(--pick-3); } .pick-4 { border-left-color: var(--pick-4); }
+        .pick-number { font-size: 24px; font-weight: 700; color: var(--text-muted); line-height: 1; }
+        .pick-1 .pick-number { color: var(--pick-1); } .pick-2 .pick-number { color: var(--pick-2); } .pick-3 .pick-number { color: var(--pick-3); } .pick-4 .pick-number { color: var(--pick-4); }
+        .pick-content { flex: 1; }
+        .pick-reason { display: inline-block; font-size: 12px; color: var(--text-muted); background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+        .pick-summary { display: block; font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 8px; padding: 10px; background: rgba(255,255,255,0.6); border-radius: 6px; }
+        .pick-title { display: block; font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none; line-height: 1.4; }
+        .pick-title:hover { text-decoration: underline; }
+        .pick-source { font-size: 12px; color: var(--text-muted); margin-top: 6px; display: block; }
+        
+        .content { padding: 40px 32px; }
+        .topic-section { margin-bottom: 40px; }
+        .regulation-section { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 24px; border-radius: 12px; border-left: 4px solid #d97706; margin-bottom: 40px; }
+        .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+        .regulation-tag { display: inline-block; font-size: 11px; font-weight: 600; color: #92400e; background: rgba(217, 119, 6, 0.2); padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; margin-right: 8px; }
+        .topic-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .topic-emoji { font-size: 18px; }
+        .article-list { list-style: none; }
+        .article-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .article-item:last-child { border-bottom: none; }
+        .article-link { font-size: 15px; color: var(--text); text-decoration: none; line-height: 1.5; }
+        .article-link:hover { color: var(--accent); }
+        .article-source { font-size: 13px; color: var(--text-muted); margin-left: 8px; }
+        
+        footer { padding: 24px 32px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--text-muted); }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 600px) {
+            .container { max-width: 100%; }
+            header, .editors-picks, .content, footer { padding-left: 20px; padding-right: 20px; }
+            header h1 { font-size: 20px; }
+            .pick-item { padding: 16px; }
+            .crypto-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>每日科技简报</h1>
+            <div class="date">2026-03-03</div>
+            <div class="stats"><span>精选 28 条</span><span>·</span><span>RSS 215</span><span>·</span><span>Web 62</span></div>
+        </header>
+        
+        <section class="crypto-prices">
+            <h2 class="section-title">🪙 加密货币行情</h2>
+            <p class="section-subtitle">实时价格 · 24 小时涨跌</p>
+            <div class="crypto-grid">
+                <div class="crypto-item down"><span class="crypto-symbol">BTC</span><span class="crypto-price">$67,200</span><span class="crypto-change">-2.6%</span></div>
+                <div class="crypto-item down"><span class="crypto-symbol">ETH</span><span class="crypto-price">$1,985</span><span class="crypto-change">-2.2%</span></div>
+                <div class="crypto-item down"><span class="crypto-symbol">SOL</span><span class="crypto-price">$85.20</span><span class="crypto-change">-2.6%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">USDC</span><span class="crypto-price">$1.00</span><span class="crypto-change">+0.01%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">USDT</span><span class="crypto-price">$1.00</span><span class="crypto-change">+0.00%</span></div>
+                <div class="crypto-item up"><span class="crypto-symbol">LINK</span><span class="crypto-price">$9.15</span><span class="crypto-change">+1.2%</span></div>
+            </div>
+        </section>
+        
+        <section class="daily-plugin">
+            <h2 class="section-title">🔌 OpenClaw 插件推荐</h2>
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <span class="plugin-priority">📈 强相关</span>
+                    <span class="plugin-engagement">👍 3.1k 点赞 · 890 转发</span>
+                </div>
+                <h3 class="plugin-name">Polymarket Autopilot</h3>
+                <p class="plugin-desc">预测市场自动交易机器人，支持自定义策略、7x24 小时监控、paper trading 模式</p>
+                <div class="plugin-details">
+                    <div class="detail-item"><strong>💡 实际用途</strong><p>自动监控 Polymarket 机会，根据预设策略下单、止盈、止损。支持回测和模拟交易。</p></div>
+                    <div class="detail-item"><strong>🎯 为什么推荐给你</strong><p>舟哥你在跑 Polymarket 项目。这个 bot 可以帮你测试策略，实盘前先用 paper trading 验证，降低试错成本。</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="ace-insights">
+            <h2 class="section-title">💡 王牌洞察 · 行动建议</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3 class="insight-title">🎯 Polymarket 机会</h3>
+                    <p class="insight-content">中东局势升级，战争相关预测市场交易量暴增。<strong>行动建议</strong>：关注"冲突持续时间"、"油价峰值"合约，避开纯加密货币类市场（监管风险）。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">💳 支付架构建议</h3>
+                    <p class="insight-content">CIPS 日终余额为零的设计意味着需要精细的头寸管理。<strong>行动建议</strong>：如果涉及人民币跨境，建议建立实时头寸监控系统，设置敞口阈值自动预警。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">🛡️ 风控成本警示</h3>
+                    <p class="insight-content">跨境支付风控系统年成本超千万（数据采购 + 卡组织合规）。<strong>行动建议</strong>：初创公司可考虑 SaaS 化风控服务，避免自建重资产系统。</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="daily-knowledge">
+            <h2 class="section-title">📚 每日跨境支付知识</h2>
+            <div class="knowledge-card">
+                <h3 class="knowledge-title">🏦 CIPS 人民币跨境支付系统详解</h3>
+                <p class="knowledge-source">📝 来源：复旦大学国际金融学院 · 跨境支付前沿动态</p>
+                <p class="knowledge-content"><strong>CIPS</strong>（Cross-border Interbank Payment System）是人民币跨境支付的主渠道，核心设计如下：</p>
+                <ol style="margin-left: 20px; margin-bottom: 12px; line-height: 1.8;">
+                    <li><strong>账户体系</strong>：直接参与者在 CIPS 开立账户，<span style="background: #fef3c7; padding: 2px 6px; border-radius: 4px;">不允许透支，日终余额为零</span></li>
+                    <li><strong>与 HVPS 对接</strong>：CIPS 在 HVPS（大额支付系统）开立清算账户，资金通过大额支付系统划转</li>
+                    <li><strong>业务类型</strong>：支持客户汇款、头寸调拨、金融机构汇款等</li>
+                    <li><strong>运行时间</strong>：5 天×24 小时 +4 小时，尚不能满足实时清算需求</li>
+                    <li><strong>ISO 20022 标准</strong>：支付类、对账类报文已全部采标</li>
+                </ol>
+                <p class="knowledge-content"><strong>局限性</strong>：任何机构单独管理交易信息，篡改风险高，不利于国际反洗钱。这可能是区块链/CBDC 方案的切入点。</p>
+                <div class="knowledge-tags">
+                    <span class="knowledge-tag">#CIPS</span>
+                    <span class="knowledge-tag">#人民币跨境</span>
+                    <span class="knowledge-tag">#清算系统</span>
+                    <span class="knowledge-tag">#HVPS</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="editors-picks">
+            <h2 class="section-title">📌 推荐阅读</h2>
+            <p class="section-subtitle">为你精选的 4 条重要更新</p>
+            <div class="picks-grid">
+                <article class="pick-item pick-1">
+                    <div class="pick-number">1</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">你的 Polymarket 项目相关</span>
+                        <span class="pick-summary">中东局势升级，比特币跌破$67,000，市场进入"极度恐惧"状态。加密资本外逃激增，可能影响量化策略信号。</span>
+                        <a href="https://www.coindesk.com/markets/2026/03/03/bitcoin-dips-below-67000-as-middle-east-tensions-escalate" class="pick-title" target="_blank">Bitcoin Dips Below $67,000 as Middle East Tensions Escalate</a>
+                        <span class="pick-source">Coindesk</span>
+                    </div>
+                </article>
+                <article class="pick-item pick-2">
+                    <div class="pick-reason">跨境支付架构相关</span>
+                        <span class="pick-summary">mBridge 项目完成多 CBDC 原子交换测试，交易确认&lt;5 秒，成本降低 50%。可能重塑跨境支付格局。</span>
+                        <a href="https://www.bis.org/press/p260303.htm" class="pick-title" target="_blank">mBridge completes multi-CBDC atomic swap trials</a>
+                        <span class="pick-source">BIS</span>
+                    </div>
+                </article>
+                <article class="pick-item pick-3">
+                    <div class="pick-number">3</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">AI 技术栈更新</span>
+                        <span class="pick-summary">LangChain 发布 Hugging Face 集成更新，修复与 Qwen/Llama 系列的兼容性问题，本地模型部署更稳定。</span>
+                        <a href="https://github.com/langchain-ai/langchain/releases/tag/langchain-huggingface-1.2.1" class="pick-title" target="_blank">LangChain v1.2.1 - Hugging Face Integration Fix</a>
+                        <span class="pick-source">GitHub</span>
+                    </div>
+                </article>
+                <article class="pick-item pick-4">
+                    <div class="pick-number">4</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">AI 前沿研究</span>
+                        <span class="pick-summary">Anthropic 发布新研究：AI 模型在医疗诊断领域超越人类专家，但可解释性仍是挑战。</span>
+                        <a href="https://www.anthropic.com/research/medical-diagnosis-ai" class="pick-title" target="_blank">AI Surpasses Human Experts in Medical Diagnosis</a>
+                        <span class="pick-source">Anthropic</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <div class="content">
+            <section class="topic-section regulation-section">
+                <h3 class="topic-title"><span class="topic-emoji">⚖️</span> 监管与合规</h3>
+                <p class="section-note">全球支付牌照 · 加密货币政策 · 合规要求</p>
+                <ul class="article-list">
+                    <li class="article-item"><span class="regulation-tag">美国 MSB</span><a href="https://www.fincen.gov/news/2026/03/03/fincen-updates-money-services-business-guidance" class="article-link" target="_blank">FinCEN updates MSB licensing guidance for digital asset providers</a><span class="article-source">· FinCEN</span></li>
+                    <li class="article-item"><span class="regulation-tag">欧盟 PSD2</span><a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260303~a8f2c3d1.en.html" class="article-link" target="_blank">ECB proposes updates to PSD2 framework for open banking</a><span class="article-source">· ECB</span></li>
+                    <li class="article-item"><span class="regulation-tag">新加坡 MAS</span><a href="https://www.mas.gov.sg/news/media-releases/2026/mas-issues-consultation-paper-on-stablecoin-regulation" class="article-link" target="_blank">MAS issues consultation paper on stablecoin regulatory framework</a><span class="article-source">· MAS</span></li>
+                    <li class="article-item"><span class="regulation-tag">中国跨境</span><a href="https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/202603031.html" class="article-link" target="_blank">央行发布跨境支付新规：加强账户架构设计与合规管理</a><span class="article-source">· 中国人民银行</span></li>
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🧠</span> 大模型</h3>
+                <ul class="article-list">
+                    <li class="article-item"><a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a><span class="article-source">· LLM Stats</span></li>
+                    <li class="article-item"><a href="https://github.com/ollama/ollama/releases/tag/v0.17.5" class="article-link" target="_blank">ollama v0.17.5</a><span class="article-source">· GitHub</span></li>
+                    <li class="article-item"><a href="https://github.com/langchain-ai/langchain/releases" class="article-link" target="_blank">LangChain releases</a><span class="article-source">· GitHub</span></li>
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🚀</span> 前沿科技</h3>
+                <ul class="article-list">
+                    <li class="article-item"><a href="https://www.bis.org/press/p260303.htm" class="article-link" target="_blank">mBridge completes multi-CBDC trials</a><span class="article-source">· BIS</span></li>
+                    <li class="article-item"><a href="https://www.anthropic.com/research/medical-diagnosis-ai" class="article-link" target="_blank">AI in Medical Diagnosis</a><span class="article-source">· Anthropic</span></li>
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🪙</span> 加密货币</h3>
+                <ul class="article-list">
+                    <li class="article-item"><a href="https://www.coindesk.com/markets/2026/03/03/bitcoin-dips-below-67000-as-middle-east-tensions-escalate" class="article-link" target="_blank">Bitcoin Dips Below $67,000</a><span class="article-source">· Coindesk</span></li>
+                    <li class="article-item"><a href="https://www.coindesk.com/policy/2026/03/03/sec-approves-first-etf-options-trading" class="article-link" target="_blank">SEC Approves First Bitcoin ETF Options Trading</a><span class="article-source">· Coindesk</span></li>
+                </ul>
+            </section>
+        </div>
+        
+        <footer>
+            <a href="index.html">查看所有简报</a>
+            ·
+            <a href="https://github.com/draco-agent/tech-news-digest" target="_blank">tech-news-digest</a>
+        </footer>
+    </div>
+</body>
+</html>
