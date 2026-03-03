@@ -1,0 +1,52 @@
+{
+  "usecases": [
+    {
+      "name": "Mission Control Dashboard",
+      "category": "任务管理",
+      "description": "任务看板，追踪团队进度，可视化项目状态",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "✅ 已装"
+    },
+    {
+      "name": "Polymarket Autopilot",
+      "category": "量化交易",
+      "description": "预测市场自动交易，7x24 小时监控，自定义策略",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "🎯 强相关"
+    },
+    {
+      "name": "Daily Standup Bot",
+      "category": "团队协作",
+      "description": "每日站会机器人，自动收集进度，生成报告",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "📋 协作"
+    },
+    {
+      "name": "Code Review Assistant",
+      "category": "代码质量",
+      "description": "自动代码审查，检测 bug 和安全漏洞",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "🔍 审查"
+    },
+    {
+      "name": "Social Media Manager",
+      "category": "营销自动化",
+      "description": "自动发布 Twitter/LinkedIn，分析互动数据",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "📱 营销"
+    },
+    {
+      "name": "Personal Finance Tracker",
+      "category": "个人理财",
+      "description": "自动记账，分析消费习惯，预算提醒",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "💰 理财"
+    }
+  ]
+}

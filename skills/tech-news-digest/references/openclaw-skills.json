@@ -1,0 +1,52 @@
+{
+  "skills": [
+    {
+      "name": "Polyclaw",
+      "category": "量化交易",
+      "description": "Polymarket 自动交易技能，AI 驱动市场分析，自动下单",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "stars": "N/A",
+      "priority": "🎯 强相关"
+    },
+    {
+      "name": "Tech News Digest",
+      "category": "情报收集",
+      "description": "每日科技简报，151 个数据源，5 层管道处理",
+      "github": "https://github.com/draco-agent/tech-news-digest",
+      "stars": "180+",
+      "priority": "✅ 已装"
+    },
+    {
+      "name": "Weather",
+      "category": "生活服务",
+      "description": "天气预报技能，支持 wttr.in 和 Open-Meteo",
+      "github": "https://github.com/openclaw/openclaw",
+      "stars": "核心技能",
+      "priority": "🌤️ 实用"
+    },
+    {
+      "name": "Healthcheck",
+      "category": "系统安全",
+      "description": "主机安全审计与加固，风险配置检查",
+      "github": "https://github.com/openclaw/openclaw",
+      "stars": "核心技能",
+      "priority": "🛡️ 安全"
+    },
+    {
+      "name": "Skill Creator",
+      "category": "开发工具",
+      "description": "创建自定义 AgentSkills，结构化模板",
+      "github": "https://github.com/openclaw/openclaw",
+      "stars": "核心技能",
+      "priority": "🛠️ 开发"
+    },
+    {
+      "name": "ClawHub",
+      "category": "包管理",
+      "description": "搜索/安装/发布技能，类似 npm 的技能市场",
+      "github": "https://github.com/openclaw/openclaw",
+      "stars": "核心技能",
+      "priority": "📦 管理"
+    }
+  ]
+}

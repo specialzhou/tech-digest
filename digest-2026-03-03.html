@@ -194,6 +194,109 @@
             color: #4ade80;
         }
         
+        /* Daily Recommendations */
+        .daily-recommendations {
+            padding: 32px;
+            background: linear-gradient(135deg, #0f4c75 0%, #1b262c 100%);
+            color: white;
+        }
+        
+        .daily-recommendations .section-title {
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .daily-recommendations .section-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        
+        .recommendation-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: transform 0.2s;
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .recommendation-card.plugin {
+            border-color: #e94560;
+        }
+        
+        .recommendation-card.skill {
+            border-color: #0f4c75;
+        }
+        
+        .recommendation-card.usecase {
+            border-color: #27ae60;
+        }
+        
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .rec-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .rec-category {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .rec-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+        
+        .rec-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 12px;
+        }
+        
+        .rec-meta {
+            margin-bottom: 12px;
+        }
+        
+        .rec-stars {
+            font-size: 13px;
+            color: #fbbf24;
+        }
+        
+        .rec-link {
+            display: inline-block;
+            color: #4ade80;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .rec-link:hover {
+            text-decoration: underline;
+        }
+        
         /* Daily Plugin */
         .daily-plugin {
             padding: 32px;
@@ -587,14 +690,14 @@
     
                 <div class="crypto-item down">
                     <span class="crypto-symbol">BTC</span>
-                    <span class="crypto-price">$68,136.00</span>
-                    <span class="crypto-change">-1.7%</span>
+                    <span class="crypto-price">$68,280.00</span>
+                    <span class="crypto-change">-1.1%</span>
                 </div>
         
                 <div class="crypto-item down">
                     <span class="crypto-symbol">ETH</span>
-                    <span class="crypto-price">$1,973.27</span>
-                    <span class="crypto-change">-3.9%</span>
+                    <span class="crypto-price">$1,978.63</span>
+                    <span class="crypto-change">-2.7%</span>
                 </div>
         
                 <div class="crypto-item down">
@@ -605,8 +708,8 @@
         
                 <div class="crypto-item down">
                     <span class="crypto-symbol">SOL</span>
-                    <span class="crypto-price">$84.82</span>
-                    <span class="crypto-change">-3.4%</span>
+                    <span class="crypto-price">$85.17</span>
+                    <span class="crypto-change">-2.4%</span>
                 </div>
         
             </div>
@@ -615,19 +718,19 @@
                 <div class="advice-content">
                     <div class="advice-row">
                         <span class="advice-label">市场情绪：</span>
-                        <span class="advice-value sentiment-恐">恐惧</span>
+                        <span class="advice-value sentiment-中">中性</span>
                     </div>
                     <div class="advice-row">
                         <span class="advice-label">操作建议：</span>
-                        <span class="advice-value action-分">分批建仓</span>
+                        <span class="advice-value action-观">观望</span>
                     </div>
                     <div class="advice-row">
                         <span class="advice-label">理由：</span>
-                        <span class="advice-reason">市场回调，可逐步建仓优质资产</span>
+                        <span class="advice-reason">市场震荡，等待明确方向信号</span>
                     </div>
                     <div class="advice-row">
                         <span class="advice-label">关键位：</span>
-                        <span class="advice-value">支撑 $64,729 / 阻力 $71,542</span>
+                        <span class="advice-value">支撑 $64,866 / 阻力 $71,694</span>
                     </div>
                     <div class="advice-row">
                         <span class="advice-label">⚠️ 风险：</span>
@@ -639,24 +742,50 @@
     
         
         
-        <section class="daily-plugin">
-            <h2 class="section-title">🔌 OpenClaw 插件推荐</h2>
-            <div class="plugin-card">
-                <div class="plugin-header">
-                    <span class="plugin-priority">🎯 强相关</span>
-                    <span class="plugin-engagement">👍 </span>
+        <section class="daily-recommendations">
+            <h2 class="section-title">🔌 OpenClaw 每日推荐</h2>
+            <p class="section-subtitle">每日轮换 · 发现更多好用工具</p>
+            <div class="recommendations-grid">
+                <!-- Plugin Card -->
+                <div class="recommendation-card plugin">
+                    <div class="rec-header">
+                        <span class="rec-badge">🎯 强相关</span>
+                        <span class="rec-category">量化交易</span>
+                    </div>
+                    <h3 class="rec-title">🔌 Polymarket Autopilot</h3>
+                    <p class="rec-desc">预测市场自动交易机器人，支持自定义策略、paper trading 模式</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ N/A (用例收录)</span>
+                    </div>
+                    <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/polymarket-autopilot.md" class="rec-link" target="_blank">查看详情 →</a>
                 </div>
-                <h3 class="plugin-name">Polymarket Autopilot</h3>
-                <p class="plugin-desc">预测市场自动交易机器人，支持自定义策略、paper trading 模式</p>
-                <div class="plugin-details">
-                    <div class="detail-item">
-                        <strong>💡 实际用途</strong>
-                        <p>自动监控 Polymarket 机会，根据预设策略下单。支持回测和模拟交易。</p>
+                
+                <!-- Skill Card -->
+                <div class="recommendation-card skill">
+                    <div class="rec-header">
+                        <span class="rec-badge">🎯 强相关</span>
+                        <span class="rec-category">量化交易</span>
                     </div>
-                    <div class="detail-item">
-                        <strong>🎯 为什么推荐给你</strong>
-                        <p>舟哥你在跑 Polymarket 项目。这个 bot 可以帮你测试策略，实盘前先用 paper trading 验证。</p>
+                    <h3 class="rec-title">⚡ Polyclaw</h3>
+                    <p class="rec-desc">Polymarket 自动交易技能，AI 驱动市场分析，自动下单</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ N/A</span>
                     </div>
+                    <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases" class="rec-link" target="_blank">查看详情 →</a>
+                </div>
+                
+                <!-- Usecase Card -->
+                <div class="recommendation-card usecase">
+                    <div class="rec-header">
+                        <span class="rec-badge">📱 营销</span>
+                        <span class="rec-category">营销自动化</span>
+                    </div>
+                    <h3 class="rec-title">📋 Social Media Manager</h3>
+                    <p class="rec-desc">自动发布 Twitter/LinkedIn，分析互动数据</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ N/A</span>
+                    </div>
+                    <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases" class="rec-link" target="_blank">查看详情 →</a>
                 </div>
             </div>
         </section>

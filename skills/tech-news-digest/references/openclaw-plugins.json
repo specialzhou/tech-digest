@@ -1,0 +1,96 @@
+{
+  "plugins": [
+    {
+      "id": "memory-lancedb-pro",
+      "name": "Memory LanceDB Pro",
+      "category": "记忆增强",
+      "description": "LanceDB 驱动的长期记忆系统，支持向量+BM25 混合检索、Cross-Encoder 重排序、多 scope 隔离",
+      "github": "https://github.com/win4r/memory-lancedb-pro",
+      "stars": "245+",
+      "features": ["混合检索 (Vector+BM25)", "Cross-Encoder 重排序", "多 scope 隔离", "管理 CLI", "会话记忆"],
+      "use_case": "记住舟哥的技术偏好、项目进展、对话历史。跨会话保持一致性，不再每次都说'我是谁'。",
+      "why_recommend": "你是全栈技术合伙人，需要记住舟哥的每个项目细节。这个插件让你不再是'金鱼记忆'，而是真正的长期助手。",
+      "community_feedback": "YouTube/Bilibili 完整教程，社区活跃开发中",
+      "priority": "🔥 必装"
+    },
+    {
+      "id": "tech-news-digest",
+      "name": "Tech News Digest",
+      "category": "情报收集",
+      "description": "每日科技简报，151 个数据源，5 层管道，质量评分 + 去重",
+      "github": "https://github.com/draco-agent/tech-news-digest",
+      "stars": "180+",
+      "features": ["151 个数据源", "5 层管道", "质量评分", "去重", "多格式输出"],
+      "use_case": "自动收集 AI/加密/支付领域新闻，生成带中文摘要的简报。你现在就在用。",
+      "why_recommend": "每天 2 分钟掌握行业动态，不用自己刷 Twitter/Reddit。支持 Discord/Telegram/邮件推送。",
+      "community_feedback": "ClawHub 官方推荐技能，每日自动推送",
+      "priority": "✅ 已装"
+    },
+    {
+      "id": "polymarket-autopilot",
+      "name": "Polymarket Autopilot",
+      "category": "量化交易",
+      "description": "预测市场自动交易机器人，支持自定义策略、paper trading 模式",
+      "github": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/polymarket-autopilot.md",
+      "stars": "N/A (用例收录)",
+      "features": ["7x24 小时监控", "自定义策略", "止盈止损", "paper trading"],
+      "use_case": "自动监控 Polymarket 机会，根据预设策略下单。支持回测和模拟交易。",
+      "why_recommend": "舟哥你在跑 Polymarket 项目。这个 bot 可以帮你测试策略，实盘前先用 paper trading 验证。",
+      "community_feedback": "收录于 awesome-openclaw-usecases 官方用例库",
+      "priority": "🎯 强相关"
+    },
+    {
+      "id": "browser-control",
+      "name": "Browser Control",
+      "category": "自动化",
+      "description": "Playwright 驱动的浏览器自动化，支持截图/点击/表单填写/上传",
+      "github": "https://github.com/openclaw/openclaw",
+      "stars": "OpenClaw 核心功能",
+      "features": ["浏览器快照", "元素操作", "文件上传", "多 Profile 支持"],
+      "use_case": "自动登录后台、抓取数据、测试 UI、生成报告截图。",
+      "why_recommend": "全栈开发场景多。比如自动测试 dashboard、抓取竞品价格、批量操作后台。",
+      "community_feedback": "OpenClaw 内置核心功能，文档完善",
+      "priority": "💡 推荐"
+    },
+    {
+      "id": "cron-scheduling",
+      "name": "Cron Scheduling",
+      "category": "任务调度",
+      "description": "定时任务系统，支持复杂 cron 表达式，管理 recurring tasks",
+      "github": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "stars": "收录于 5400+ skills 集合",
+      "features": ["cron 表达式", "定时任务", "任务管理", "日志记录"],
+      "use_case": "每日简报 9 点推送、每周备份、每月账单生成。",
+      "why_recommend": "你现在用 heartbeat 做定时检查。Cron 更灵活，可以精确到分钟，支持多时区。",
+      "community_feedback": "VoltAgent awesome 集合收录，社区广泛使用",
+      "priority": "⏰ 实用"
+    },
+    {
+      "id": "openclaw-mem",
+      "name": "OpenClaw Mem (Local-first)",
+      "category": "记忆增强",
+      "description": "本地优先的记忆侧车 + 混合记忆引擎，SQLite receipts + LanceDB 后端",
+      "github": "https://github.com/phenomenoner/openclaw-mem",
+      "stars": "新兴项目",
+      "features": ["本地优先", "SQLite receipts", "混合记忆引擎", "后端可切换"],
+      "use_case": "不想依赖外部 API？本地记忆方案，支持切换 memory-core/memory-lancedb 后端。",
+      "why_recommend": "如果你关心数据隐私，或者想减少 API 调用成本，这个方案值得考虑。",
+      "community_feedback": "2026 年新兴项目，本地优先架构",
+      "priority": "🆕 新兴"
+    }
+  ],
+  "rotation_schedule": {
+    "monday": "memory-lancedb-pro",
+    "tuesday": "polymarket-autopilot",
+    "wednesday": "browser-control",
+    "thursday": "cron-scheduling",
+    "friday": "openclaw-mem",
+    "saturday": "tech-news-digest",
+    "sunday": "memory-lancedb-pro"
+  },
+  "data_sources": {
+    "github_search": "Brave Search API",
+    "last_updated": "2026-03-03",
+    "note": "Stars 数据来自 GitHub 实时搜索，community_feedback 来自官方文档/用例库收录情况"
+  }
+}
