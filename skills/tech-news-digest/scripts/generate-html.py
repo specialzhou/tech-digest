@@ -719,6 +719,9 @@ def generate_digest_html(data, output_path, date_str=None):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>每日科技简报 - {date_str}</title>
     <style>
         :root {{
