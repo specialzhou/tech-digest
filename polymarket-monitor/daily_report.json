@@ -1,0 +1,35 @@
+{
+  "date": "2026-03-03",
+  "generated_at": "2026-03-03T04:56:30.420800",
+  "paper_trading": {
+    "total_trades": 1,
+    "win_rate": 0,
+    "total_pnl": 0,
+    "positions": [
+      {
+        "market_condition_id": "0xa0436c53bfb3e19902381d2759e6e2077b494031c2ccbd3b21384e8f31c8902b",
+        "market_question": "Club Alianza Atlético vs. CD Garcilaso: O/U 2.5",
+        "outcome": "over",
+        "shares": 253.95,
+        "avg_entry_price": 0.3937783028155149,
+        "total_cost": 100.0,
+        "realized_pnl": 0.0
+      }
+    ],
+    "period": "all_time"
+  },
+  "real_trading": {
+    "total_positions": 0,
+    "total_value": 0,
+    "total_pnl": 0,
+    "positions": [],
+    "enabled": false
+  },
+  "summary": {
+    "paper_win_rate": 0,
+    "paper_total_pnl": 0,
+    "real_total_value": 0,
+    "real_total_pnl": 0,
+    "confidence_score": 20
+  }
+}

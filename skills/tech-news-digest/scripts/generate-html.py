@@ -89,41 +89,54 @@ def generate_editors_picks(data):
     all_articles = []
     for topic_data in data.get("topics", {}).values():
         all_articles.extend(topic_data.get("articles", []))
-    
+
     # Score and sort
     for article in all_articles:
         article["_relevance"] = get_relevance_score(article)
-    
+
     all_articles.sort(key=lambda x: x.get("_relevance", 0), reverse=True)
-    
+
     picks = []
     seen_topics = set()
-    
+
     for article in all_articles:
         if len(picks) >= 4:
             break
-        
+
         topic = article.get("primary_topic", "general")
         if topic in seen_topics and len(picks) >= 3:
             continue
-        
+
         score = article.get("quality_score", 0)
         if score < 5.0:
             continue
-        
+
         # Determine pick reason
         reason = get_pick_reason(article)
-        
+
+        # Get summary from available fields (try multiple sources)
+        summary = article.get("_summary_zh", "")
+        if not summary:
+            summary = article.get("ai_summary", "")
+        if not summary:
+            summary = article.get("snippet", "")
+        if not summary:
+            summary = article.get("description", "")
+        if not summary:
+            # Fallback: use source name to create a basic description
+            source = article.get("source_name", "Unknown")
+            summary = f"来自 {source} 的最新资讯"
+
         picks.append({
             "title": clean_title(article.get("title", "")),
             "link": article.get("link", "#"),
             "source": article.get("source_name", "Unknown"),
             "reason": reason,
             "relevance": article.get("_relevance", 0),
-            "summary": article.get("_summary_zh", "")
+            "summary": summary[:200] + "..." if len(summary) > 200 else summary
         })
         seen_topics.add(topic)
-    
+
     return picks
 
 def get_pick_reason(article):
@@ -191,12 +204,14 @@ def fetch_trending_openclaw_content():
         )
         if resp.status_code == 200:
             contents = resp.json()
-            for item in contents[:3]:
-                if item.get("type") == "file" and item.get("name", "").endswith(".md"):
+            skip_files = {'README.md', 'CONTRIBUTING.md', 'LICENSE', 'CODE_OF_CONDUCT.md'}
+            for item in contents[:5]:
+                name = item.get("name", "")
+                if item.get("type") == "file" and name.endswith(".md") and name not in skip_files:
                     results["usecases"].append({
-                        "name": item.get("name", "").replace(".md", ""),
+                        "name": name.replace(".md", ""),
                         "category": "用例",
-                        "description": f"社区贡献用例 - {item.get('name', '')}",
+                        "description": f"社区贡献用例 - {name.replace('.md', '')}",
                         "github": item.get("html_url", ""),
                         "stars": "N/A",
                         "priority": "📋 社区",

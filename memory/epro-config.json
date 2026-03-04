@@ -1,0 +1,17 @@
+{
+  "embedding": {
+    "apiKey": "sk-sp-4b5b4a5d691d46e699974b664398d849",
+    "model": "text-embedding-v3",
+    "baseUrl": "https://coding.dashscope.aliyuncs.com/v1"
+  },
+  "llm": {
+    "apiKey": "sk-sp-4b5b4a5d691d46e699974b664398d849",
+    "model": "qwen3.5-plus",
+    "baseUrl": "https://coding.dashscope.aliyuncs.com/v1"
+  },
+  "dbPath": "/root/.openclaw/workspace/memory/epro-lancedb",
+  "autoCapture": true,
+  "autoRecall": true,
+  "recallLimit": 5,
+  "recallMinScore": 0.3
+}

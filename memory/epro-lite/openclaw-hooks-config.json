@@ -1,0 +1,36 @@
+{
+  "name": "epro-lite-memory-hooks",
+  "description": "Auto-capture and recall memories for OpenClaw sessions",
+  "enabled": true,
+  
+  "hooks": {
+    "session_start": {
+      "enabled": true,
+      "script": "/root/.openclaw/workspace/memory/epro-lite/session_hooks.py",
+      "args": ["start", "{{USER_MESSAGE}}"],
+      "injectInto": "system_prompt",
+      "injectFormat": "markdown",
+      "timeout": 30
+    },
+    "session_end": {
+      "enabled": true,
+      "script": "/root/.openclaw/workspace/memory/epro-lite/session_hooks.py",
+      "args": ["end", "/tmp/oc_session_{{SESSION_ID}}.json"],
+      "saveMessages": true,
+      "timeout": 60
+    }
+  },
+  
+  "memory": {
+    "categories": ["profile", "preferences", "entities", "events", "cases", "patterns"],
+    "maxRecall": 3,
+    "triggerKeywords": ["记住", "别忘了", "注意", "重要", "偏好", "习惯", "喜欢", "不喜欢"],
+    "autoCapture": true
+  },
+  
+  "storage": {
+    "memoriesPath": "/root/.openclaw/workspace/memory/epro-lite/memories.json",
+    "backupPath": "/root/.openclaw/workspace/memory/epro-lite/memories.backup",
+    "maxBackups": 3
+  }
+}

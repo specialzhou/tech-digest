@@ -1,0 +1,83 @@
+{
+  "version": "0.2.0",
+  "name": "epro-lite",
+  "description": "Lightweight epro-memory with optional vector search",
+  
+  "categories": {
+    "profile": {
+      "label": "用户信息",
+      "merge": "always",
+      "description": "用户身份、静态属性"
+    },
+    "preferences": {
+      "label": "偏好习惯",
+      "merge": "by_topic",
+      "description": "用户倾向、习惯、偏好"
+    },
+    "entities": {
+      "label": "实体",
+      "merge": "supported",
+      "description": "项目、人物、组织"
+    },
+    "events": {
+      "label": "事件",
+      "merge": "append_only",
+      "description": "决策、里程碑、发生的事"
+    },
+    "cases": {
+      "label": "案例",
+      "merge": "append_only",
+      "description": "问题 + 解决方案对"
+    },
+    "patterns": {
+      "label": "模式",
+      "merge": "supported",
+      "description": "可复用的流程和方法"
+    }
+  },
+
+  "llm": {
+    "provider": "bailian",
+    "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+    "apiKey": "sk-sp-4b5b4a5d691d46e699974b664398d849",
+    "model": "qwen3.5-plus",
+    "timeout": 120
+  },
+
+  "embedding": {
+    "enabled": true,
+    "provider": "bailian",
+    "baseUrl": "https://dashscope.aliyuncs.com/api/v1",
+    "apiKey": "sk-c09de191dad6442b909d6a921ea7cae6",
+    "model": "text-embedding-v4",
+    "dimensions": 1024
+  },
+
+  "extraction": {
+    "enabled": true,
+    "minMessages": 3,
+    "maxChars": 6000,
+    "triggerKeywords": ["记住", "别忘了", "注意", "重要", "偏好", "习惯", "喜欢", "不喜欢"],
+    "timeout": 120
+  },
+
+  "recall": {
+    "enabled": true,
+    "maxResults": 5,
+    "minRelevance": 0.4,
+    "useVector": true
+  },
+
+  "dedup": {
+    "enabled": true,
+    "strategy": "llm",
+    "similarityThreshold": 0.85
+  },
+
+  "storage": {
+    "path": "/root/.openclaw/workspace/memory/epro-lite/memories.json",
+    "backupPath": "/root/.openclaw/workspace/memory/epro-lite/memories.backup.json",
+    "autoBackup": true,
+    "maxBackups": 3
+  }
+}

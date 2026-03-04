@@ -1,0 +1,56 @@
+[00:09:23.411] Server  ERROR   ⨯ Error: Cannot find module 'next/dist/client/components/builtin/global-not-found'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:23.731] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:24.145] Server  ERROR   ⨯ Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:24.591] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:25.180] Server  ERROR   ⨯ Error: Cannot find module 'next/dist/client/components/builtin/global-not-found'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:25.384] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:25.531] Server  ERROR   ⨯ Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js
+[00:09:25.606] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/router-server.js
+- /root/.openclaw/workspace/content-pipeline/node_modules/next/dist/server/lib/start-server.js

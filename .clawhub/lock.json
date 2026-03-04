@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "skills": {
+    "tech-news-digest": {
+      "version": "3.5.0",
+      "installedAt": 1771521012874
+    },
+    "twitter-search-skill": {
+      "version": "0.1.2",
+      "installedAt": 1771918684345
+    },
+    "douyin-video-fetch": {
+      "version": "1.0.0",
+      "installedAt": 1771956978240
+    },
+    "qveris": {
+      "version": "0.1.0",
+      "installedAt": 1772188297427
+    },
+    "qveris-official": {
+      "version": "1.0.0",
+      "installedAt": 1772194728173
+    },
+    "polymarket-paper-trader": {
+      "version": "0.1.7",
+      "installedAt": 1772527717952
+    },
+    "polyclaw": {
+      "version": "1.0.2",
+      "installedAt": 1772527846547
+    }
+  }
+}
