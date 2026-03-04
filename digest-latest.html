@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日科技简报 - 2026-03-03</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --pick-1: #dc2626;
+            --pick-2: #ea580c;
+            --pick-3: #059669;
+            --pick-4: #7c3aed;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card);
+            min-height: 100vh;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        /* Header */
+        header {
+            padding: 48px 32px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        
+        header .date {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        header .stats {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        /* Crypto Prices */
+        .crypto-prices {
+            padding: 32px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+        }
+        
+        .crypto-prices .section-title,
+        .crypto-prices .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .crypto-item {
+            background: rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .crypto-symbol {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        
+        .crypto-price {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .crypto-change {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .crypto-item.up .crypto-change {
+            color: #4ade80;
+        }
+        
+        .crypto-item.down .crypto-change {
+            color: #f87171;
+        }
+        
+        /* Investment Advice */
+        .investment-advice {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .advice-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .advice-content {
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .advice-row {
+            display: flex;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .advice-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .advice-label {
+            font-weight: 600;
+            min-width: 90px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .advice-value {
+            font-weight: 500;
+            color: white;
+        }
+        
+        .advice-reason {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+        }
+        
+        .advice-risk {
+            color: #fbbf24;
+            font-weight: 500;
+        }
+        
+        .sentiment-中 {
+            color: #9ca3af;
+        }
+        
+        .action-观 {
+            color: #9ca3af;
+        }
+        
+        .action-逢 {
+            color: #4ade80;
+        }
+        
+        .action-分 {
+            color: #60a5fa;
+        }
+        
+        .action-适 {
+            color: #fbbf24;
+        }
+        
+        .action-持 {
+            color: #4ade80;
+        }
+        
+        /* Daily Recommendations */
+        .daily-recommendations {
+            padding: 32px;
+            background: linear-gradient(135deg, #0f4c75 0%, #1b262c 100%);
+            color: white;
+        }
+        
+        .daily-recommendations .section-title {
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .daily-recommendations .section-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        
+        .recommendation-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: transform 0.2s;
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .recommendation-card.plugin {
+            border-color: #e94560;
+        }
+        
+        .recommendation-card.skill {
+            border-color: #0f4c75;
+        }
+        
+        .recommendation-card.usecase {
+            border-color: #27ae60;
+        }
+        
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .rec-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .rec-source {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .rec-category {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .rec-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+        
+        .rec-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 12px;
+        }
+        
+        .rec-meta {
+            margin-bottom: 12px;
+        }
+        
+        .rec-stars {
+            font-size: 13px;
+            color: #fbbf24;
+        }
+        
+        .rec-updated {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-left: 8px;
+        }
+        
+        .rec-link {
+            display: inline-block;
+            color: #4ade80;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .rec-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Daily Plugin */
+        .daily-plugin {
+            padding: 32px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .daily-plugin .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .plugin-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid #e94560;
+        }
+        
+        .plugin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .plugin-priority {
+            font-size: 14px;
+            font-weight: 600;
+            background: #e94560;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .plugin-engagement {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .plugin-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .plugin-desc {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .plugin-details {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .detail-item strong {
+            display: block;
+            font-size: 13px;
+            color: #4cc9f0;
+            margin-bottom: 6px;
+        }
+        
+        .detail-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Daily Knowledge */
+        .daily-knowledge {
+            padding: 32px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .daily-knowledge .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .knowledge-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #0284c7;
+        }
+        
+        .knowledge-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        
+        .knowledge-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        
+        .knowledge-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .knowledge-tag {
+            font-size: 12px;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .knowledge-source {
+            font-size: 13px;
+            color: #0369a1;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        /* Ace Insights */
+        .ace-insights {
+            padding: 32px;
+            background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+            color: white;
+            border-bottom: 1px solid var(--border);
+        }
+        .ace-insights .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .insight-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .insight-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #6ee7b7;
+        }
+        .insight-content {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .insight-content strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        /* Editor's Picks */
+        .editors-picks {
+            padding: 40px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        
+        .picks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .pick-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .pick-1 { border-left-color: var(--pick-1); }
+        .pick-2 { border-left-color: var(--pick-2); }
+        .pick-3 { border-left-color: var(--pick-3); }
+        .pick-4 { border-left-color: var(--pick-4); }
+        
+        .pick-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-muted);
+            line-height: 1;
+        }
+        
+        .pick-1 .pick-number { color: var(--pick-1); }
+        .pick-2 .pick-number { color: var(--pick-2); }
+        .pick-3 .pick-number { color: var(--pick-3); }
+        .pick-4 .pick-number { color: var(--pick-4); }
+        
+        .pick-content {
+            flex: 1;
+        }
+        
+        .pick-reason {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .pick-summary {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding: 10px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 6px;
+        }
+        
+        .pick-title {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            line-height: 1.4;
+        }
+        
+        .pick-title:hover {
+            text-decoration: underline;
+        }
+        
+        .pick-source {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            display: block;
+        }
+        
+        /* Topic Sections */
+        .content {
+            padding: 40px 32px;
+        }
+        
+        .topic-section {
+            margin-bottom: 40px;
+        }
+        
+        .regulation-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #d97706;
+            margin-bottom: 40px;
+        }
+        
+        .section-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .regulation-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #92400e;
+            background: rgba(217, 119, 6, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            margin-right: 8px;
+        }
+        
+        .topic-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .topic-emoji {
+            font-size: 18px;
+        }
+        
+        .article-list {
+            list-style: none;
+        }
+        
+        .article-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article-item:last-child {
+            border-bottom: none;
+        }
+        
+        .article-link {
+            font-size: 15px;
+            color: var(--text);
+            text-decoration: none;
+            line-height: 1.5;
+        }
+        
+        .article-link:hover {
+            color: var(--accent);
+        }
+        
+        .article-source {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 24px 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container { max-width: 100%; }
+            header, .editors-picks, .content, footer { padding-left: 20px; padding-right: 20px; }
+            header h1 { font-size: 20px; }
+            .pick-item { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>每日科技简报</h1>
+            <div class="date">2026-03-03</div>
+            <div class="stats">
+                <span>精选 21 条</span>
+                <span>·</span>
+                <span>RSS 249</span>
+                <span>·</span>
+                <span>Web 39</span>
+            </div>
+        </header>
+        
+        
+        <section class="crypto-prices">
+            <h2 class="section-title">🪙 加密货币行情</h2>
+            <p class="section-subtitle">实时价格 · 24 小时涨跌</p>
+            <div class="crypto-grid">
+    
+                <div class="crypto-item down">
+                    <span class="crypto-symbol">BTC</span>
+                    <span class="crypto-price">$67,608.00</span>
+                    <span class="crypto-change">-1.1%</span>
+                </div>
+        
+                <div class="crypto-item down">
+                    <span class="crypto-symbol">ETH</span>
+                    <span class="crypto-price">$1,954.95</span>
+                    <span class="crypto-change">-2.7%</span>
+                </div>
+        
+                <div class="crypto-item up">
+                    <span class="crypto-symbol">USDT</span>
+                    <span class="crypto-price">$1.00</span>
+                    <span class="crypto-change">+0.0%</span>
+                </div>
+        
+                <div class="crypto-item down">
+                    <span class="crypto-symbol">SOL</span>
+                    <span class="crypto-price">$85.08</span>
+                    <span class="crypto-change">-1.3%</span>
+                </div>
+        
+            </div>
+            <div class="investment-advice">
+                <h3 class="advice-title">📌 投资建议</h3>
+                <div class="advice-content">
+                    <div class="advice-row">
+                        <span class="advice-label">市场情绪：</span>
+                        <span class="advice-value sentiment-中">中性</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">操作建议：</span>
+                        <span class="advice-value action-观">观望</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">理由：</span>
+                        <span class="advice-reason">市场震荡，等待明确方向信号</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">关键位：</span>
+                        <span class="advice-value">支撑 $64,227 / 阻力 $70,988</span>
+                    </div>
+                    <div class="advice-row">
+                        <span class="advice-label">⚠️ 风险：</span>
+                        <span class="advice-risk">关注美联储议息会议、CPI 数据、地缘政治局势</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        
+        
+        <section class="daily-recommendations">
+            <h2 class="section-title">🔌 OpenClaw 热门推荐</h2>
+            <p class="section-subtitle">实时搜索 GitHub/Twitter/Reddit · 发现社区高赞工具</p>
+            <div class="recommendations-grid">
+                <!-- Plugin Card -->
+                <div class="recommendation-card plugin">
+                    <div class="rec-header">
+                        <span class="rec-badge">🔥 热门</span>
+                        <span class="rec-source">📍 GitHub</span>
+                    </div>
+                    <h3 class="rec-title">🔌 buildwithclaude</h3>
+                    <p class="rec-desc">A single hub to find Claude Skills, Agents, Commands, Hooks, Plugins, and Marketplace collections to</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ 2,526+</span>
+                        <span class="rec-updated">· 更新：2026-03-04</span>
+                    </div>
+                    <a href="https://github.com/davepoon/buildwithclaude" class="rec-link" target="_blank">GitHub →</a>
+                </div>
+                
+                <!-- Skill Card -->
+                <div class="recommendation-card skill">
+                    <div class="rec-header">
+                        <span class="rec-badge">✅ 已装</span>
+                        <span class="rec-source">📍 GitHub</span>
+                    </div>
+                    <h3 class="rec-title">⚡ Tech News Digest</h3>
+                    <p class="rec-desc">每日科技简报，151 个数据源，5 层管道处理</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ 180+</span>
+                        <span class="rec-updated">· 更新：2026-03-03</span>
+                    </div>
+                    <a href="https://github.com/draco-agent/tech-news-digest" class="rec-link" target="_blank">GitHub →</a>
+                </div>
+                
+                <!-- Usecase Card -->
+                <div class="recommendation-card usecase">
+                    <div class="rec-header">
+                        <span class="rec-badge">📋 社区</span>
+                        <span class="rec-source">📍 GitHub</span>
+                    </div>
+                    <h3 class="rec-title">📋 CONTRIBUTING</h3>
+                    <p class="rec-desc">社区贡献用例 - CONTRIBUTING.md</p>
+                    <div class="rec-meta">
+                        <span class="rec-stars">⭐ N/A</span>
+                        <span class="rec-updated">· 更新：2026-03-03</span>
+                    </div>
+                    <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/CONTRIBUTING.md" class="rec-link" target="_blank">GitHub →</a>
+                </div>
+            </div>
+        </section>
+    
+        
+        
+        <section class="ace-insights">
+            <h2 class="section-title">💡 王牌洞察 · 行动建议</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3 class="insight-title">🎯 Polymarket 机会</h3>
+                    <p class="insight-content">Nasdaq 进场预测市场意味着传统金融认可这个赛道。<strong>行动建议</strong>：关注监管友好型预测项目，避开纯加密货币类市场。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">💳 支付架构建议</h3>
+                    <p class="insight-content">稳定币监管收紧，USDC/USDT 收益可能下降。<strong>行动建议</strong>：提前布局多法币通道，减少对单一稳定币依赖。</p>
+                </div>
+                <div class="insight-card">
+                    <h3 class="insight-title">🤖 AI 技术栈更新</h3>
+                    <p class="insight-content">Ollama 修复 Qwen 3.5 问题，本地部署更稳定。<strong>行动建议</strong>：如果在用 Qwen 3.5，建议更新到最新版避免崩溃。</p>
+                </div>
+            </div>
+        </section>
+    
+        
+        
+        <section class="daily-knowledge">
+            <h2 class="section-title">📚 每日跨境支付知识</h2>
+            <div class="knowledge-card">
+                <h3 class="knowledge-title">外汇头寸管理实战</h3>
+                <p class="knowledge-source">📝 来源：陈天宇宙 · 支付架构师手记</p>
+                <p class="knowledge-content">外汇头寸管理是跨境支付公司的核心能力。1) 头寸类型：多头（买入>卖出）、空头（卖出>买入）、敞口（未平仓金额）；2) 管理目标：最小化汇率波动风险，最大化资金利用效率；3) 操作模式：a.自然对冲：匹配同币种收支，减少换汇；b.集中轧差：集团内部多主体净额结算；c.远期锁汇：与银行签订远期合约锁定汇率；d.动态调仓：根据汇率预测调整头寸比例。4) 系统实现：实时头寸监控 + 自动预警（敞口超阈值）+ 调拨建议引擎。案例：某支付公司通过集中轧差减少换汇成本 30%/年。</p>
+                <div class="knowledge-tags">
+                    <span class="knowledge-tag">#外汇头寸</span><span class="knowledge-tag">#汇率风险</span><span class="knowledge-tag">#资金效率</span>
+                </div>
+            </div>
+        </section>
+    
+        
+        
+        <section class="editors-picks">
+            <h2 class="section-title">📌 推荐阅读</h2>
+            <p class="section-subtitle">为你精选的 4 条重要更新</p>
+            <div class="picks-grid">
+        
+                <article class="pick-item pick-1">
+                    <div class="pick-number">1</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">今日高价值</span>
+                        
+                        <a href="https://openai.com/index/gpt-5-3-instant-system-card" class="pick-title" target="_blank">GPT</a>
+                        <span class="pick-source">OpenAI Blog</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-2">
+                    <div class="pick-number">2</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">今日高价值</span>
+                        
+                        <a href="https://openai.com/index/gpt-5-3-instant-system-card" class="pick-title" target="_blank">GPT</a>
+                        <span class="pick-source">OpenAI Blog</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-3">
+                    <div class="pick-number">3</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">今日高价值</span>
+                        
+                        <a href="https://openai.com/index/gpt-5-3-instant-system-card" class="pick-title" target="_blank">GPT</a>
+                        <span class="pick-source">OpenAI Blog</span>
+                    </div>
+                </article>
+            
+                <article class="pick-item pick-4">
+                    <div class="pick-number">4</div>
+                    <div class="pick-content">
+                        <span class="pick-reason">精选推荐</span>
+                        
+                        <a href="https://www.coindesk.com/policy/2026/03/03/trump-urges-passage-of-u-s-clarity-act-attacks-banks-for-undercutting-genius" class="pick-title" target="_blank">Trump urges passage of U.S. Clarity Act, attacks banks for 'undercu...</a>
+                        <span class="pick-source">CoinDesk</span>
+                    </div>
+                </article>
+            
+            </div>
+        </section>
+        
+        
+        <div class="content">
+            
+        <section class="topic-section regulation-section">
+            <h3 class="topic-title"><span class="topic-emoji">⚖️</span> 监管与合规</h3>
+            <p class="section-note">全球支付牌照 · 加密货币政策 · 合规要求</p>
+            <ul class="article-list">
+        
+                <li class="article-item">
+                    <span class="regulation-tag">合规监管相关</span>
+                    <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a>
+                    <span class="article-source">· Web Search</span>
+                </li>
+            
+                <li class="article-item">
+                    <span class="regulation-tag">合规监管相关</span>
+                    <a href="https://aws.amazon.com/ai/agentic-ai/" class="article-link" target="_blank">Agentic AI Solutions and Development Tools</a>
+                    <span class="article-source">· Web Search</span>
+                </li>
+            
+                <li class="article-item">
+                    <span class="regulation-tag">合规监管相关</span>
+                    <a href="https://www.ibm.com/think/topics/ai-agents" class="article-link" target="_blank">What Are AI Agents?</a>
+                    <span class="article-source">· Web Search</span>
+                </li>
+            
+                <li class="article-item">
+                    <span class="regulation-tag">合规监管相关</span>
+                    <a href="https://www.futureofbanking.info/mastercard-and-santander-move-ai-from-pilot-to-live-infrastructure/" class="article-link" target="_blank">Mastercard and Santander Move AI From Pilot to Live Infrastructure</a>
+                    <span class="article-source">· Web Search</span>
+                </li>
+            
+                <li class="article-item">
+                    <span class="regulation-tag">合规监管相关</span>
+                    <a href="https://aiagentstore.ai/" class="article-link" target="_blank">AI Agent Store: AI Agent Marketplace/Directory, AI Agency list</a>
+                    <span class="article-source">· Web Search</span>
+                </li>
+            
+            </ul>
+        </section>
+        
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🧠</span> 大模型</h3>
+                <ul class="article-list">
+                    
+            <li class="article-item">
+                <a href="https://simonwillison.net/2026/Mar/3/gemini-31-flash-lite/#atom-everything" class="article-link" target="_blank">Gemini 3.1 Flash</a>
+                <span class="article-source">· Simon Willison</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://openai.com/index/gpt-5-3-instant-system-card" class="article-link" target="_blank">GPT</a>
+                <span class="article-source">· OpenAI Blog</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://llm-stats.com/ai-news" class="article-link" target="_blank">LLM News Today (March 2026)</a>
+                <span class="article-source">· Web Search</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.technologyreview.com/2026/03/03/1133907/mit-technology-review-insiders-panel-2/" class="article-link" target="_blank">MIT Technology Review Insiders Panel</a>
+                <span class="article-source">· MIT Technology Review</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.technologyreview.com/2026/03/03/1133900/the-download-the-startup-that-says-it-can-stop-lightning-and-inside-openais-pentagon-deal/" class="article-link" target="_blank">The Download: The startup that says it can stop lightning, and insi...</a>
+                <span class="article-source">· MIT Technology Review</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.technologyreview.com/2026/03/03/1133848/this-startup-claims-it-can-stop-lightning-and-prevent-catastrophic-wildfires/" class="article-link" target="_blank">This startup claims it can stop lightning and prevent catastrophic ...</a>
+                <span class="article-source">· MIT Technology Review</span>
+            </li>
+            
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🤖</span> AI Agent</h3>
+                <ul class="article-list">
+                    
+            <li class="article-item">
+                <a href="https://simonwillison.net/2026/Mar/3/gemini-31-flash-lite/#atom-everything" class="article-link" target="_blank">Gemini 3.1 Flash</a>
+                <span class="article-source">· Simon Willison</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.2" class="article-link" target="_blank">openclaw v2026.3.2</a>
+                <span class="article-source">· OpenClaw</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://aws.amazon.com/ai/agentic-ai/" class="article-link" target="_blank">Agentic AI Solutions and Development Tools</a>
+                <span class="article-source">· Web Search</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.ibm.com/think/topics/ai-agents" class="article-link" target="_blank">What Are AI Agents?</a>
+                <span class="article-source">· Web Search</span>
+            </li>
+            
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🚀</span> 前沿科技</h3>
+                <ul class="article-list">
+                    
+            <li class="article-item">
+                <a href="https://simonwillison.net/2026/Mar/3/gemini-31-flash-lite/#atom-everything" class="article-link" target="_blank">Gemini 3.1 Flash</a>
+                <span class="article-source">· Simon Willison</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.euronews.com/next/2026/03/02/cancel-chatgpt-ai-boycott-surges-after-openai-pentagon-military-deal" class="article-link" target="_blank">Cancel ChatGPT AI boycott surges after OpenAI pentagon military deal</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.ifixit.com/News/115827/new-thinkpads-score-perfect-10-repairability" class="article-link" target="_blank">Lenovo's New ThinkPads Score 10/10 for Repairability</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://talos.wtf/" class="article-link" target="_blank">Talos: Hardware accelerator for deep convolutional neural networks</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.politico.eu/article/helsinki-no-traffic-death-roads-eu-accident-finland-driving-transport/" class="article-link" target="_blank">Helsinki just went a full year without a single traffic death</a>
+                <span class="article-source">· Hacker News Frontpage</span>
+            </li>
+            
+                </ul>
+            </section>
+            
+            <section class="topic-section">
+                <h3 class="topic-title"><span class="topic-emoji">🪙</span> 加密货币</h3>
+                <ul class="article-list">
+                    
+            <li class="article-item">
+                <a href="https://www.coindesk.com/policy/2026/03/03/trump-urges-passage-of-u-s-clarity-act-attacks-banks-for-undercutting-genius" class="article-link" target="_blank">Trump urges passage of U.S. Clarity Act, attacks banks for 'undercu...</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.coindesk.com/policy/2026/03/03/jp-morgan-ceo-jamie-dimon-says-stablecoin-issuers-paying-interest-should-be-regulated-as-banks" class="article-link" target="_blank">JP Morgan CEO Jamie Dimon says stablecoin issuers paying interest s...</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.coindesk.com/opinion/2026/03/03/donald-trump-s-crypto-legacy-in-two-words-paul-atkins" class="article-link" target="_blank">Donald Trump's crypto legacy in two words: Paul Atkins</a>
+                <span class="article-source">· CoinDesk</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/392117/trump-genius-stablecoin-law-threatened-banks-congress-stalls-market-structure-bill?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Trump: GENIUS stablecoin law &#8216;threatened&#8217; by banks as C...</a>
+                <span class="article-source">· The Block</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/392103/french-hill-urges-senate-take-house-crypto-bill-stablecoin-yield-fight?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">French Hill urges Senate to take up House crypto bill amid stableco...</a>
+                <span class="article-source">· The Block</span>
+            </li>
+            
+            <li class="article-item">
+                <a href="https://www.theblock.co/post/392079/ethereum-vitalik-buterin-sanctuary-tech-forget-emulating-apple-or-google?utm_source=rss&amp;utm_medium=rss" class="article-link" target="_blank">Ethereum&#8217;s Vitalik Buterin: build &#8216;sanctuary tech,&#821...</a>
+                <span class="article-source">· The Block</span>
+            </li>
+            
+                </ul>
+            </section>
+            
+        </div>
+        
+        <footer>
+            <a href="index.html">查看所有简报</a>
+            ·
+            <a href="https://github.com/draco-agent/tech-news-digest" target="_blank">tech-news-digest</a>
+        </footer>
+    </div>
+</body>
+</html>
