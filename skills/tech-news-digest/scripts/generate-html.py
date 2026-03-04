@@ -10,8 +10,10 @@ import re
 
 def clean_title(title):
     """Clean and truncate title."""
-    title = re.sub(r'\s*[-|–—]\s*.*$', '', title)
-    title = re.sub(r'\s*\|.*$', '', title)
+    # Only remove trailing site names like " - Site Name" or " | Site Name"
+    # But preserve version numbers like "GPT-5.3" or "v1.2.3"
+    title = re.sub(r'\s+[–—-]\s+[^\d].*$', '', title)  # Remove " - Site Name" but keep "GPT-5.3"
+    title = re.sub(r'\s*\|\s*[^\d].*$', '', title)      # Remove " | Site Name" but keep versions
     if len(title) > 70:
         title = title[:67] + "..."
     return title.strip()
@@ -98,6 +100,7 @@ def generate_editors_picks(data):
 
     picks = []
     seen_topics = set()
+    seen_links = set()  # Track unique links to avoid duplicates
 
     for article in all_articles:
         if len(picks) >= 4:
@@ -110,6 +113,12 @@ def generate_editors_picks(data):
         score = article.get("quality_score", 0)
         if score < 5.0:
             continue
+        
+        # Skip duplicate links
+        link = article.get("link", "")
+        if link in seen_links:
+            continue
+        seen_links.add(link)
 
         # Determine pick reason
         reason = get_pick_reason(article)
